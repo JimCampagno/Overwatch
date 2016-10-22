@@ -12,12 +12,13 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let test = Hero(name: .mcCree)
+        let test = Hero(name: .soldier)
         print(test.realName)
         print(test.affiliations)
         print(test.baseOfOperations)
         print(test.occupation)
         print(test.age)
+        print(test.type)
     }
 
 }
