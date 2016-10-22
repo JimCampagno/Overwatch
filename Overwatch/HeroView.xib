@@ -10,7 +10,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeroView" customModule="Overwatch" customModuleProvider="target">
             <connections>
+                <outlet property="baseOfOperationsLabel" destination="xfx-HM-ji4" id="xze-UY-6tc"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="WNM-2x-upY"/>
+                <outlet property="firstAffiliationLabel" destination="Ssr-yV-xuc" id="Lt4-WK-rvR"/>
+                <outlet property="heroImageView" destination="3Nh-oK-Avx" id="KBW-4C-IaA"/>
+                <outlet property="heroNameLabel" destination="Rro-BP-DIY" id="cJ3-aM-O3Y"/>
+                <outlet property="occupationLabel" destination="0tf-em-n2q" id="2u4-be-dPM"/>
+                <outlet property="realNameAgeLabel" destination="9P8-Mp-GRr" id="4fr-WP-GHR"/>
+                <outlet property="secondAffiliationLabel" destination="dUa-cd-sI4" id="C90-lY-Igx"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

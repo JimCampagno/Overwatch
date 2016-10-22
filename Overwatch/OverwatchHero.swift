@@ -15,11 +15,11 @@ protocol OverwatchHero {
     var age: String { get }
     var occupation: String { get }
     var baseOfOperations: String { get }
-    var affiliations: String { get }
+    var affiliations: [Affiliation] { get }
     var type: String { get }
     var image: UIImage { get }
-    
-    
+    var realNameAndAge: String { get }
+    var nickName: String { get }
 }
 
 extension OverwatchHero {
@@ -27,11 +27,6 @@ extension OverwatchHero {
     var realName: String {
         return name.realName
     }
-    
-    var affiliations: String {
-        return produceAllAffiliations() ?? "No Affiliations"
-    }
-    
     
     var baseOfOperations: String {
         switch name {
@@ -87,7 +82,16 @@ extension OverwatchHero {
         
     }
     
-    func allAffiliations() -> [Affiliation] {
+    var realNameAndAge: String {
+        return realName + ", Age: " + age
+        
+    }
+    
+    var nickName: String {
+        return "\(name)"
+    }
+    
+    var affiliations: [Affiliation] {
         switch name {
         case .genji:
             return [Affiliation.shimadaClan(formerly: true), Affiliation.overwatch(formerly: true)]
@@ -104,18 +108,7 @@ extension OverwatchHero {
         }
     }
     
-    func produceAllAffiliations() -> String? {
-        let all = allAffiliations()
-        guard !all.isEmpty else { return nil }
-        var result = ""
-        for (index, affiliation) in all.enumerated() {
-            result += "\(affiliation)"
-            if index != all.count - 1 {
-                result += ", "
-            }
-        }
-        return result
-    }
+   
     
 }
 
