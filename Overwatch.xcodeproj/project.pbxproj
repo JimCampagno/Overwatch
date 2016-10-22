@@ -10,6 +10,8 @@
 		7D0145A01DBBE8DC002FA6E7 /* Overwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D01459F1DBBE8DC002FA6E7 /* Overwatch.swift */; };
 		7D0145A21DBBEBC7002FA6E7 /* HeroView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D0145A11DBBEBC7002FA6E7 /* HeroView.xib */; };
 		7D0145A41DBBEBF5002FA6E7 /* HeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0145A31DBBEBF5002FA6E7 /* HeroView.swift */; };
+		7D0145A61DBC0EAC002FA6E7 /* HeroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0145A51DBC0EAC002FA6E7 /* HeroTableViewCell.swift */; };
+		7D0145A81DBC0F48002FA6E7 /* HeroTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0145A71DBC0F48002FA6E7 /* HeroTableViewController.swift */; };
 		7D168DA31DBB04420035B5D5 /* OverwatchHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D168DA21DBB04420035B5D5 /* OverwatchHero.swift */; };
 		7D168DA51DBB0EBB0035B5D5 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D168DA41DBB0EBB0035B5D5 /* Hero.swift */; };
 		7D79E4C61DBB039D004E18F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D79E4C51DBB039D004E18F5 /* AppDelegate.swift */; };
@@ -23,6 +25,8 @@
 		7D01459F1DBBE8DC002FA6E7 /* Overwatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Overwatch.swift; sourceTree = "<group>"; };
 		7D0145A11DBBEBC7002FA6E7 /* HeroView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeroView.xib; sourceTree = "<group>"; };
 		7D0145A31DBBEBF5002FA6E7 /* HeroView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroView.swift; sourceTree = "<group>"; };
+		7D0145A51DBC0EAC002FA6E7 /* HeroTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroTableViewCell.swift; sourceTree = "<group>"; };
+		7D0145A71DBC0F48002FA6E7 /* HeroTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroTableViewController.swift; sourceTree = "<group>"; };
 		7D168DA21DBB04420035B5D5 /* OverwatchHero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverwatchHero.swift; sourceTree = "<group>"; };
 		7D168DA41DBB0EBB0035B5D5 /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		7D79E4C21DBB039D004E18F5 /* Overwatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Overwatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +79,8 @@
 				7D01459F1DBBE8DC002FA6E7 /* Overwatch.swift */,
 				7D0145A11DBBEBC7002FA6E7 /* HeroView.xib */,
 				7D0145A31DBBEBF5002FA6E7 /* HeroView.swift */,
+				7D0145A51DBC0EAC002FA6E7 /* HeroTableViewCell.swift */,
+				7D0145A71DBC0F48002FA6E7 /* HeroTableViewController.swift */,
 			);
 			path = Overwatch;
 			sourceTree = "<group>";
@@ -158,6 +164,8 @@
 				7D0145A41DBBEBF5002FA6E7 /* HeroView.swift in Sources */,
 				7D79E4C81DBB039D004E18F5 /* ViewController.swift in Sources */,
 				7D79E4C61DBB039D004E18F5 /* AppDelegate.swift in Sources */,
+				7D0145A81DBC0F48002FA6E7 /* HeroTableViewController.swift in Sources */,
+				7D0145A61DBC0EAC002FA6E7 /* HeroTableViewCell.swift in Sources */,
 				7D168DA51DBB0EBB0035B5D5 /* Hero.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

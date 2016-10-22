@@ -83,7 +83,7 @@ extension OverwatchHero {
     }
     
     var realNameAndAge: String {
-        return realName + ", Age: " + age
+        return realName + ", " + age
         
     }
     

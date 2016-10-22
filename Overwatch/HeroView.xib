@@ -44,8 +44,7 @@
                         </fragment>
                     </attributedString>
                     <nil key="highlightedColor"/>
-                    <color key="shadowColor" red="0.74074369668960571" green="0.47068941593170166" blue="0.15286880731582642" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <size key="shadowOffset" width="1" height="1"/>
+                    <size key="shadowOffset" width="0.0" height="0.0"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="bLR-6C-g1j" userLabel="HeroStackView">
                     <subviews>
@@ -54,7 +53,7 @@
                                 <fragment content="Adventurer">
                                     <attributes>
                                         <color key="NSColor" red="0.0" green="0.69742876291275024" blue="0.99558848142623901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <font key="NSFont" size="33" name="AvenirNext-DemiBold"/>
+                                        <font key="NSFont" size="27" name="AvenirNext-DemiBold"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                     </attributes>
                                 </fragment>
@@ -65,7 +64,7 @@
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9P8-Mp-GRr" userLabel="RealNameAge">
                                     <attributedString key="attributedText">
-                                        <fragment content="Genji Shimada, Age: 35">
+                                        <fragment content="Genji Shimada, 35">
                                             <attributes>
                                                 <color key="NSColor" red="0.95376402139663696" green="0.57073360681533813" blue="0.10745420306921005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <font key="NSFont" size="14" name="AvenirNext-DemiBold"/>

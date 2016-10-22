@@ -36,7 +36,12 @@ class HeroView: UIView {
         super.init(coder: aDecoder)
         commonInit()
     }
-
+    
+    init() {
+        super.init(frame: CGRect(x: 0, y: 0, width: 375, height: 200))
+        commonInit()
+    }
+    
     private func commonInit() {
         Bundle.main.loadNibNamed("HeroView", owner: self, options: nil)
         contentView.translatesAutoresizingMaskIntoConstraints = false
