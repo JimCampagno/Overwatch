@@ -11,6 +11,7 @@ import UIKit
 class HeroTableViewController: UITableViewController {
     
     var heroes: [Hero]!
+    var types: [Type]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +24,7 @@ class HeroTableViewController: UITableViewController {
         let soldier = Hero(name: .soldier)
         
         heroes = [genji, mcCree, pharah, reaper, tracer, soldier]
-        
+        types = Type.allTypes
         view.backgroundColor = UIColor.lightBlack
     }
 
@@ -50,6 +51,29 @@ class HeroTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
+    }
+    
+
+    
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let width = Int(tableView.frame.size.width)
+        let height = 20
+        let sectionView = UIView(frame: CGRect(x: 0, y: 0, width: width, height: height))
+        sectionView.backgroundColor = UIColor(red:0.09, green:0.09, blue:0.09, alpha:0.9)
+        
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        sectionView.addSubview(label)
+        label.constrainEdges(to: sectionView, padding: Padding(top: 8, bottom: 8, leading: 8, trailing: 0))
+        
+        label.text = "\(types[section])"
+        
+        return sectionView
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 60
     }
     
 

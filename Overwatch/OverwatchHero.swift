@@ -151,6 +151,10 @@ enum Type: CustomStringConvertible {
         case .support: return "Support"
         }
     }
+    
+    static var allTypes: [Type] {
+        return [.offense, .defense, .tank, .support]
+    }
 }
 
 enum Occupation: CustomStringConvertible {
