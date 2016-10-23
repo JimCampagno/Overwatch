@@ -16,6 +16,11 @@
 		7D0145AC1DBC3EB2002FA6E7 /* HeroSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0145AB1DBC3EB2002FA6E7 /* HeroSectionView.swift */; };
 		7D168DA31DBB04420035B5D5 /* OverwatchHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D168DA21DBB04420035B5D5 /* OverwatchHero.swift */; };
 		7D168DA51DBB0EBB0035B5D5 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D168DA41DBB0EBB0035B5D5 /* Hero.swift */; };
+		7D6793251DBC876A0011D3D6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D6793241DBC876A0011D3D6 /* AVFoundation.framework */; };
+		7D6793271DBC87A10011D3D6 /* GunShot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7D6793261DBC87A10011D3D6 /* GunShot.wav */; };
+		7D6793291DBC8A180011D3D6 /* GunShot2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7D6793281DBC8A180011D3D6 /* GunShot2.wav */; };
+		7D67932B1DBC941D0011D3D6 /* ElectricSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7D67932A1DBC941D0011D3D6 /* ElectricSound.wav */; };
+		7D67932D1DBC96BD0011D3D6 /* ZaryaShot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7D67932C1DBC96BD0011D3D6 /* ZaryaShot.wav */; };
 		7D79E4C61DBB039D004E18F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D79E4C51DBB039D004E18F5 /* AppDelegate.swift */; };
 		7D79E4C81DBB039D004E18F5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D79E4C71DBB039D004E18F5 /* ViewController.swift */; };
 		7D79E4CB1DBB039D004E18F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D79E4C91DBB039D004E18F5 /* Main.storyboard */; };
@@ -33,6 +38,11 @@
 		7D0145AB1DBC3EB2002FA6E7 /* HeroSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroSectionView.swift; sourceTree = "<group>"; };
 		7D168DA21DBB04420035B5D5 /* OverwatchHero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverwatchHero.swift; sourceTree = "<group>"; };
 		7D168DA41DBB0EBB0035B5D5 /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
+		7D6793241DBC876A0011D3D6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		7D6793261DBC87A10011D3D6 /* GunShot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GunShot.wav; sourceTree = "<group>"; };
+		7D6793281DBC8A180011D3D6 /* GunShot2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GunShot2.wav; sourceTree = "<group>"; };
+		7D67932A1DBC941D0011D3D6 /* ElectricSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ElectricSound.wav; sourceTree = "<group>"; };
+		7D67932C1DBC96BD0011D3D6 /* ZaryaShot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ZaryaShot.wav; sourceTree = "<group>"; };
 		7D79E4C21DBB039D004E18F5 /* Overwatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Overwatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D79E4C51DBB039D004E18F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D79E4C71DBB039D004E18F5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,17 +57,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D6793251DBC876A0011D3D6 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D6793231DBC876A0011D3D6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7D6793241DBC876A0011D3D6 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7D79E4B91DBB039C004E18F5 = {
 			isa = PBXGroup;
 			children = (
 				7D79E4C41DBB039D004E18F5 /* Overwatch */,
 				7D79E4C31DBB039D004E18F5 /* Products */,
+				7D6793231DBC876A0011D3D6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,6 +107,10 @@
 				7D0145A71DBC0F48002FA6E7 /* HeroTableViewController.swift */,
 				7D0145A91DBC3EA1002FA6E7 /* HeroSectionView.xib */,
 				7D0145AB1DBC3EB2002FA6E7 /* HeroSectionView.swift */,
+				7D6793261DBC87A10011D3D6 /* GunShot.wav */,
+				7D6793281DBC8A180011D3D6 /* GunShot2.wav */,
+				7D67932A1DBC941D0011D3D6 /* ElectricSound.wav */,
+				7D67932C1DBC96BD0011D3D6 /* ZaryaShot.wav */,
 			);
 			path = Overwatch;
 			sourceTree = "<group>";
@@ -152,9 +176,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D79E4D01DBB039D004E18F5 /* LaunchScreen.storyboard in Resources */,
+				7D67932B1DBC941D0011D3D6 /* ElectricSound.wav in Resources */,
 				7D79E4CD1DBB039D004E18F5 /* Assets.xcassets in Resources */,
+				7D6793291DBC8A180011D3D6 /* GunShot2.wav in Resources */,
 				7D0145AA1DBC3EA1002FA6E7 /* HeroSectionView.xib in Resources */,
+				7D6793271DBC87A10011D3D6 /* GunShot.wav in Resources */,
 				7D0145A21DBBEBC7002FA6E7 /* HeroView.xib in Resources */,
+				7D67932D1DBC96BD0011D3D6 /* ZaryaShot.wav in Resources */,
 				7D79E4CB1DBB039D004E18F5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

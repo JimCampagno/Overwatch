@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import AVFoundation
 
 class HeroTableViewController: UITableViewController {
     
     var heroes: [Hero]!
     var types: [Type]!
+    var audioPlayer: AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,15 +30,63 @@ class HeroTableViewController: UITableViewController {
         view.backgroundColor = UIColor.lightBlack
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
         tableView.addGestureRecognizer(gestureRecognizer)
+        
+//        let path = Bundle.main.resourcePath! + "/GunShot.wave"
+//        let soundURL = URL(fileURLWithPath: path)
+//        audioPlayer = try! AVAudioPlayer(contentsOf: soundURL)
+        
+        let filePath = Bundle.main.path(forResource: "GunShot", ofType: "wav")!
+        let url = URL(fileURLWithPath: filePath)
+        audioPlayer = try! AVAudioPlayer(contentsOf: url)
+        
+//        if let filepath = Bundle.main.path(forResource: "example", ofType: "txt") {
+//            do {
+//                let contents = try String(contentsOfFile: filepath)
+//                print(contents)
+//            } catch {
+//                // contents could not be loaded
+//            }
+//        } else {
+//            // example.txt not found!
+//        }
+    
     }
     
     func viewTapped(_ sender: UITapGestureRecognizer) {
+        audioPlayer.play()
+        tableView.isUserInteractionEnabled = false
         let point = sender.location(in: tableView)
-        let index = tableView.indexPathForRow(at: point)
-        UIView.animateRainbow(in: tableView, center: point) { success in
+        let index = tableView.indexPathForRow(at: point)!
+        
+        
+        let cell = self.tableView.cellForRow(at: index) as! HeroTableViewCell
+        self.tableView.isUserInteractionEnabled = true
+        
+        let viewableCells = self.tableView.visibleCells as! [HeroTableViewCell]
+        let nonTappedCells = viewableCells.filter { $0 != cell }
+        let rect = self.tableView.rectForRow(at: index)
+        let dummyView = cell.heroView.copy(with: rect) as! HeroView
+        
+        
+        self.tableView.addSubview(dummyView)
+        
+        
+        UIView.animate(withDuration: 0.2, animations: {
+            nonTappedCells.forEach { $0.heroView.alpha = 0.8 }
+            dummyView.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+            dummyView.alpha = 0.0
             
+        })
+
+        
+        UIView.animateRainbow(in: tableView, center: point) { [unowned self] success in
             
-            print("We super complete.")
+            DispatchQueue.main.async {
+               
+                print("We super complete.")
+
+            }
+            
         }
     }
     
@@ -102,7 +152,7 @@ extension UIView {
         imageView.image = image
         view.addSubview(imageView)
         imageView.center = center
-        imageView.alpha = 0.7
+        imageView.alpha = 0.5
         
         imageView.animate(images: images, duration: 0.08, center: center) { complete in
             

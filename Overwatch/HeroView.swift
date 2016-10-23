@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HeroView: UIView {
+class HeroView: UIView, NSCopying {
     
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var heroImageView: UIImageView!
@@ -71,6 +71,18 @@ class HeroView: UIView {
         } else {
             if secondAffiliationLabel.isHidden { secondAffiliationLabel.isHidden = false }
         }
+    }
+    
+    func copy(with frame: CGRect) -> Any {
+        let copy = HeroView(frame: frame)
+        copy.hero = hero
+        return copy
+    }
+    
+    func copy(with zone: NSZone? = nil) -> Any {
+        let copy = HeroView(frame: contentView.frame)
+        copy.hero = hero
+        return copy
     }
     
 }
