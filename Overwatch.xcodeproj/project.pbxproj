@@ -19,6 +19,8 @@
 		7D1655741DBD1ABF00A69CDE /* smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D1655721DBD1ABF00A69CDE /* smoke.png */; };
 		7D1655761DBD2E7300A69CDE /* ItsHighNoon.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D1655751DBD2E7300A69CDE /* ItsHighNoon.mp3 */; };
 		7D1655781DBD3A4900A69CDE /* McCreeSmoke.scnp in Resources */ = {isa = PBXBuildFile; fileRef = 7D1655771DBD3A4900A69CDE /* McCreeSmoke.scnp */; };
+		7D16557A1DBD5E6000A69CDE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1655791DBD5E6000A69CDE /* Extensions.swift */; };
+		7D16557C1DBD5F2200A69CDE /* HeroAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D16557B1DBD5F2200A69CDE /* HeroAttributes.swift */; };
 		7D168DA31DBB04420035B5D5 /* OverwatchHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D168DA21DBB04420035B5D5 /* OverwatchHero.swift */; };
 		7D168DA51DBB0EBB0035B5D5 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D168DA41DBB0EBB0035B5D5 /* Hero.swift */; };
 		7D6793251DBC876A0011D3D6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D6793241DBC876A0011D3D6 /* AVFoundation.framework */; };
@@ -46,6 +48,8 @@
 		7D1655721DBD1ABF00A69CDE /* smoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smoke.png; sourceTree = "<group>"; };
 		7D1655751DBD2E7300A69CDE /* ItsHighNoon.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ItsHighNoon.mp3; sourceTree = "<group>"; };
 		7D1655771DBD3A4900A69CDE /* McCreeSmoke.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = McCreeSmoke.scnp; sourceTree = "<group>"; };
+		7D1655791DBD5E6000A69CDE /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		7D16557B1DBD5F2200A69CDE /* HeroAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroAttributes.swift; sourceTree = "<group>"; };
 		7D168DA21DBB04420035B5D5 /* OverwatchHero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverwatchHero.swift; sourceTree = "<group>"; };
 		7D168DA41DBB0EBB0035B5D5 /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		7D6793241DBC876A0011D3D6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -74,6 +78,66 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D16557D1DBD5FAB00A69CDE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7D168DA41DBB0EBB0035B5D5 /* Hero.swift */,
+				7D168DA21DBB04420035B5D5 /* OverwatchHero.swift */,
+				7D16557B1DBD5F2200A69CDE /* HeroAttributes.swift */,
+				7D01459F1DBBE8DC002FA6E7 /* Overwatch.swift */,
+				7D1655791DBD5E6000A69CDE /* Extensions.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		7D16557E1DBD5FC300A69CDE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7D79E4C91DBB039D004E18F5 /* Main.storyboard */,
+				7D79E4CE1DBB039D004E18F5 /* LaunchScreen.storyboard */,
+				7D0145A11DBBEBC7002FA6E7 /* HeroView.xib */,
+				7D0145A31DBBEBF5002FA6E7 /* HeroView.swift */,
+				7D0145A91DBC3EA1002FA6E7 /* HeroSectionView.xib */,
+				7D0145AB1DBC3EB2002FA6E7 /* HeroSectionView.swift */,
+				7D16556D1DBD155F00A69CDE /* McCreeWeaponView.xib */,
+				7D16556F1DBD156E00A69CDE /* McCreeWeaponView.swift */,
+				7D0145A51DBC0EAC002FA6E7 /* HeroTableViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		7D16557F1DBD600C00A69CDE /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				7D1655721DBD1ABF00A69CDE /* smoke.png */,
+				7D1655771DBD3A4900A69CDE /* McCreeSmoke.scnp */,
+			);
+			name = Nodes;
+			sourceTree = "<group>";
+		};
+		7D1655801DBD602200A69CDE /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				7D6793261DBC87A10011D3D6 /* GunShot.wav */,
+				7D6793281DBC8A180011D3D6 /* GunShot2.wav */,
+				7D67932A1DBC941D0011D3D6 /* ElectricSound.wav */,
+				7D67932C1DBC96BD0011D3D6 /* ZaryaShot.wav */,
+				7D1655751DBD2E7300A69CDE /* ItsHighNoon.mp3 */,
+			);
+			name = Sounds;
+			sourceTree = "<group>";
+		};
+		7D1655811DBD603C00A69CDE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7D0145A71DBC0F48002FA6E7 /* HeroTableViewController.swift */,
+				7D79E4C71DBB039D004E18F5 /* ViewController.swift */,
+				7D79E4C51DBB039D004E18F5 /* AppDelegate.swift */,
+				7D79E4D11DBB039D004E18F5 /* Info.plist */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		7D6793231DBC876A0011D3D6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,30 +166,12 @@
 		7D79E4C41DBB039D004E18F5 /* Overwatch */ = {
 			isa = PBXGroup;
 			children = (
-				7D79E4C51DBB039D004E18F5 /* AppDelegate.swift */,
-				7D79E4C71DBB039D004E18F5 /* ViewController.swift */,
-				7D79E4C91DBB039D004E18F5 /* Main.storyboard */,
+				7D16557D1DBD5FAB00A69CDE /* Models */,
+				7D16557E1DBD5FC300A69CDE /* Views */,
+				7D1655811DBD603C00A69CDE /* Controllers */,
+				7D1655801DBD602200A69CDE /* Sounds */,
+				7D16557F1DBD600C00A69CDE /* Nodes */,
 				7D79E4CC1DBB039D004E18F5 /* Assets.xcassets */,
-				7D79E4CE1DBB039D004E18F5 /* LaunchScreen.storyboard */,
-				7D79E4D11DBB039D004E18F5 /* Info.plist */,
-				7D168DA41DBB0EBB0035B5D5 /* Hero.swift */,
-				7D168DA21DBB04420035B5D5 /* OverwatchHero.swift */,
-				7D01459F1DBBE8DC002FA6E7 /* Overwatch.swift */,
-				7D0145A11DBBEBC7002FA6E7 /* HeroView.xib */,
-				7D0145A31DBBEBF5002FA6E7 /* HeroView.swift */,
-				7D0145A51DBC0EAC002FA6E7 /* HeroTableViewCell.swift */,
-				7D0145A71DBC0F48002FA6E7 /* HeroTableViewController.swift */,
-				7D0145A91DBC3EA1002FA6E7 /* HeroSectionView.xib */,
-				7D0145AB1DBC3EB2002FA6E7 /* HeroSectionView.swift */,
-				7D6793261DBC87A10011D3D6 /* GunShot.wav */,
-				7D6793281DBC8A180011D3D6 /* GunShot2.wav */,
-				7D67932A1DBC941D0011D3D6 /* ElectricSound.wav */,
-				7D67932C1DBC96BD0011D3D6 /* ZaryaShot.wav */,
-				7D1655751DBD2E7300A69CDE /* ItsHighNoon.mp3 */,
-				7D16556D1DBD155F00A69CDE /* McCreeWeaponView.xib */,
-				7D16556F1DBD156E00A69CDE /* McCreeWeaponView.swift */,
-				7D1655721DBD1ABF00A69CDE /* smoke.png */,
-				7D1655771DBD3A4900A69CDE /* McCreeSmoke.scnp */,
 			);
 			path = Overwatch;
 			sourceTree = "<group>";
@@ -213,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D16557C1DBD5F2200A69CDE /* HeroAttributes.swift in Sources */,
 				7D0145A01DBBE8DC002FA6E7 /* Overwatch.swift in Sources */,
 				7D168DA31DBB04420035B5D5 /* OverwatchHero.swift in Sources */,
 				7D0145A41DBBEBF5002FA6E7 /* HeroView.swift in Sources */,
@@ -222,6 +269,7 @@
 				7D0145A81DBC0F48002FA6E7 /* HeroTableViewController.swift in Sources */,
 				7D0145A61DBC0EAC002FA6E7 /* HeroTableViewCell.swift in Sources */,
 				7D0145AC1DBC3EB2002FA6E7 /* HeroSectionView.swift in Sources */,
+				7D16557A1DBD5E6000A69CDE /* Extensions.swift in Sources */,
 				7D168DA51DBB0EBB0035B5D5 /* Hero.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -51,7 +51,12 @@ class HeroSectionView: UIView {
         produceImages()
     }
     
-    private func produceImages() {
+}
+
+//: MARK - Animation Methods
+extension HeroSectionView {
+    
+    fileprivate func produceImages() {
         for i in (0...14) {
             let number = i != 0 ? String(i) : ""
             let image = UIImage(named: "SymbolOrange" + number)!
@@ -61,43 +66,50 @@ class HeroSectionView: UIView {
         index = images.count
     }
     
-    func repeatingAnimation() {
-        index -= 1
-        if index < 0 { index = images.count - 1; stopAnimations = true }
-        let image = images[index]
+    func animateSymbol() {
+        let image = nextImage()
         
         UIView.transition(with: symbolImageView, duration: 0.1, options: .transitionCrossDissolve, animations: {
             self.symbolImageView.image = image
-        }) { [unowned self] success in
-            if !self.stopAnimations {
-            self.repeatingAnimation()
-            } else {
-                self.symbolImageView.image = self.images.last!
-            }
+        }) { [unowned self] _ in
+            self.checkForAnimationEnd()
         }
-        
     }
+    
+    private func nextImage() -> UIImage {
+        index -= 1
+        let nextImage = image(at: index)
+        return nextImage
+    }
+    
+    private func image(at index: Int) -> UIImage {
+        if index < 0 { self.index = images.count - 1; stopAnimations = true }
+        return images[self.index]
+    }
+    
+    private func checkForAnimationEnd(with success: Bool = true) {
+        let shouldKeepOnAnimating = !stopAnimations
+        
+        guard shouldKeepOnAnimating else { animationCleanup() ; return }
+        
+        animateSymbol()
+    }
+    
+    private func animationCleanup() {
+        symbolImageView.image = images.last!
+    }
+    
+}
+
+
+//: MARK - Display Methods
+extension HeroSectionView {
     
     func willDisplay() {
-        
-        
         stopAnimations = false
         index = 14
-        repeatingAnimation()
+        animateSymbol()
     }
-    
-    func stopAnimation() {
-//        print("Call to stop animations")
-//        stopAnimations = true
-    }
-    
-    func startAnimation() {
-//        print("Call to start animations")
-//        stopAnimations = false
-////        repeatingAnimation()
-    }
-    
-    
     
 }
 
