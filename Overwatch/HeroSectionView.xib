@@ -19,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SymbolOrange9" translatesAutoresizingMaskIntoConstraints="NO" id="8Ha-hu-uXI">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SymbolOrange14" translatesAutoresizingMaskIntoConstraints="NO" id="8Ha-hu-uXI">
                     <constraints>
                         <constraint firstAttribute="width" secondItem="8Ha-hu-uXI" secondAttribute="height" multiplier="1:1" id="7K4-AR-VSx"/>
                     </constraints>
@@ -62,7 +62,7 @@
                     </subviews>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.3371947705745697" green="0.33727627992630005" blue="0.34533384442329407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="JyB-tA-FtH" firstAttribute="leading" secondItem="rXL-SX-a9h" secondAttribute="trailing" constant="4" id="46a-Sc-mwQ"/>
                 <constraint firstItem="L9Y-dS-8py" firstAttribute="trailing" secondItem="rXL-SX-a9h" secondAttribute="leading" constant="-4" id="HjN-IG-3vK"/>
@@ -89,6 +89,6 @@
         </view>
     </objects>
     <resources>
-        <image name="SymbolOrange9" width="297" height="297"/>
+        <image name="SymbolOrange14" width="297" height="297"/>
     </resources>
 </document>

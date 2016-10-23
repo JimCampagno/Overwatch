@@ -12,12 +12,13 @@ class HeroSectionView: UIView {
     
     static let height = 45
     static let width = 375
-
+    
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var symbolImageView: UIImageView!
     var images: [UIImage] = []
     var index: Int = 0
+    var stopAnimations: Bool = false
     
     var type: Type! {
         didSet {
@@ -46,8 +47,8 @@ class HeroSectionView: UIView {
         contentView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(contentView)
         contentView.constrainEdges(to: self)
+        contentView.backgroundColor = UIColor.lightBlack
         produceImages()
-        repeatingAnimation()
     }
     
     private func produceImages() {
@@ -62,19 +63,42 @@ class HeroSectionView: UIView {
     
     func repeatingAnimation() {
         index -= 1
-        if index < 0 { index = images.count - 1 }
+        if index < 0 { index = images.count - 1; stopAnimations = true }
         let image = images[index]
         
-        UIView.transition(with: symbolImageView, duration: 0.3, options: .transitionCrossDissolve, animations: {
+        UIView.transition(with: symbolImageView, duration: 0.1, options: .transitionCrossDissolve, animations: {
             self.symbolImageView.image = image
-            }) { success in
-                self.repeatingAnimation()
+        }) { [unowned self] success in
+            if !self.stopAnimations {
+            self.repeatingAnimation()
+            } else {
+                self.symbolImageView.image = self.images.last!
+            }
         }
-    
+        
     }
     
-   
-
+    func willDisplay() {
+        
+        
+        stopAnimations = false
+        index = 14
+        repeatingAnimation()
+    }
+    
+    func stopAnimation() {
+//        print("Call to stop animations")
+//        stopAnimations = true
+    }
+    
+    func startAnimation() {
+//        print("Call to start animations")
+//        stopAnimations = false
+////        repeatingAnimation()
+    }
+    
+    
+    
 }
 
 extension UIColor {

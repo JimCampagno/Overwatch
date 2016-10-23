@@ -140,7 +140,7 @@ enum Name: CustomStringConvertible {
     
 }
 
-enum Type: CustomStringConvertible {
+enum Type: Int, CustomStringConvertible, Hashable, Equatable {
     case offense, defense, tank, support
     
     var description: String {
@@ -154,6 +154,18 @@ enum Type: CustomStringConvertible {
     
     static var allTypes: [Type] {
         return [.offense, .defense, .tank, .support]
+    }
+    
+    var hashValue: Int {
+        return "\(self)".hashValue
+    }
+    
+    static func ==(lhs: Type, rhs: Type) -> Bool {
+        return lhs.rawValue == rhs.rawValue
+    }
+    
+    static func <(lhs: Type, rhs: Type) -> Bool {
+        return lhs.rawValue < rhs.rawValue
     }
 }
 

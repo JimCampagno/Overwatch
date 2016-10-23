@@ -11,9 +11,10 @@ import AVFoundation
 
 class HeroTableViewController: UITableViewController {
     
-    var heroes: [Hero]!
     var types: [Type]!
+    var heroes: [Type : [Hero]]!
     var audioPlayer: AVAudioPlayer!
+    var sectionViews: [HeroSectionView]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +26,7 @@ class HeroTableViewController: UITableViewController {
         let tracer = Hero(name: .tracer)
         let soldier = Hero(name: .soldier)
         
-        heroes = [genji, mcCree, pharah, reaper, tracer, soldier]
+        heroes = [.offense : [genji, mcCree, pharah, reaper, tracer, soldier], .defense : [genji, mcCree, pharah, reaper, tracer, soldier]]
         types = Type.allTypes
         view.backgroundColor = UIColor.lightBlack
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
@@ -34,9 +35,32 @@ class HeroTableViewController: UITableViewController {
         let url = URL(fileURLWithPath: filePath)
         audioPlayer = try! AVAudioPlayer(contentsOf: url)
         
-        let mcCreeWeapon = McCreeWeaponView(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        let mcCreeWeapon = McCreeWeaponView(frame: CGRect(x: 0, y: 0, width: 70, height: 35))
         let barButtonItem = UIBarButtonItem(customView: mcCreeWeapon)
         navigationItem.rightBarButtonItem = barButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        createSectionViews()
+            }
+    
+    func createSectionViews() {
+        let width = Int(tableView.frame.size.width)
+        let height = HeroSectionView.height
+        let frame = CGRect(x: 0, y: 0, width: width, height: height)
+        
+        let offenseSection = HeroSectionView(frame: frame)
+        offenseSection.type = .offense
+        let defenseSection = HeroSectionView(frame: frame)
+        defenseSection.type = .defense
+        let tankSection = HeroSectionView(frame: frame)
+        tankSection.type = .tank
+        let supportSection = HeroSectionView(frame: frame)
+        supportSection.type = .support
+        
+        
+        sectionViews = [offenseSection, defenseSection, tankSection, supportSection]
     }
     
     func viewTapped(_ sender: UITapGestureRecognizer) {
@@ -59,7 +83,7 @@ class HeroTableViewController: UITableViewController {
             
         })
 
-        UIView.animateRainbow(in: tableView, center: point) { [unowned self] success in
+        UIView.animateRainbow(in: tableView, center: point) { success in
             DispatchQueue.main.async {
                 print("We super complete.")
             }
@@ -69,11 +93,14 @@ class HeroTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return heroes.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return heroes.count
+        let sortedTypes = Array(heroes.keys).sorted { $0 < $1 }
+        let type = sortedTypes[section]
+        let heroesForType = heroes[type]!
+        return heroesForType.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -83,7 +110,10 @@ class HeroTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let heroCell = cell as! HeroTableViewCell
-        heroCell.hero = heroes[indexPath.row]
+        let sortedTypes = Array(heroes.keys).sorted { $0 < $1 }
+        let type = sortedTypes[indexPath.section]
+        let heroesForType = heroes[type]!
+        heroCell.hero = heroesForType[indexPath.row]
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -92,11 +122,10 @@ class HeroTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let width = Int(tableView.frame.size.width)
-        let height = HeroSectionView.height
-        let sectionView = HeroSectionView(frame: CGRect(x: 0, y: 0, width: width, height: height))
-        sectionView.type = types[section]
-        return sectionView
+        
+        let heroSectionView = sectionViews[section]
+        heroSectionView.willDisplay()
+        return heroSectionView
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -108,6 +137,26 @@ class HeroTableViewController: UITableViewController {
         
         
     }
+    
+    
+}
+
+// MARK: - UIScrollView Delegate
+extension HeroTableViewController {
+    
+    override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    }
+    
+    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    }
+    
+    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+             }
+    
     
     
 }
