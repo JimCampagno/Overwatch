@@ -54,26 +54,16 @@ class HeroTableViewController: UITableViewController {
     }
     
 
-    
-    
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let width = Int(tableView.frame.size.width)
-        let height = 20
-        let sectionView = UIView(frame: CGRect(x: 0, y: 0, width: width, height: height))
-        sectionView.backgroundColor = UIColor(red:0.09, green:0.09, blue:0.09, alpha:0.9)
-        
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        sectionView.addSubview(label)
-        label.constrainEdges(to: sectionView, padding: Padding(top: 8, bottom: 8, leading: 8, trailing: 0))
-        
-        label.text = "\(types[section])"
-        
+        let height = HeroSectionView.height
+        let sectionView = HeroSectionView(frame: CGRect(x: 0, y: 0, width: width, height: height))
+        sectionView.type = types[section]
         return sectionView
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 60
+        return CGFloat(HeroSectionView.height)
     }
     
 

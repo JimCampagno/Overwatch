@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeroSectionView" customModule="Overwatch" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="7b3-Vl-eFQ"/>
+                <outlet property="symbolImageView" destination="8Ha-hu-uXI" id="RcL-oL-YVG"/>
+                <outlet property="typeLabel" destination="MUh-jJ-QgL" id="R1I-SA-yVf"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SymbolOrange9" translatesAutoresizingMaskIntoConstraints="NO" id="8Ha-hu-uXI">
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="8Ha-hu-uXI" secondAttribute="height" multiplier="1:1" id="7K4-AR-VSx"/>
+                    </constraints>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rXL-SX-a9h" userLabel="MiddleStackView">
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUh-jJ-QgL" userLabel="Type">
+                            <attributedString key="attributedText">
+                                <fragment content="OFFENSE">
+                                    <attributes>
+                                        <color key="NSColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                                        <font key="NSFont" size="18" name="AvenirNext-DemiBold"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
+                            <nil key="highlightedColor"/>
+                            <size key="shadowOffset" width="2" height="4"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JyB-tA-FtH" userLabel="RIghtStackView">
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="13c-pa-JHd" userLabel="RightLine">
+                            <color key="backgroundColor" white="1" alpha="0.14999999999999999" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="2" id="71r-Qm-JGu"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L9Y-dS-8py" userLabel="LeftStackView">
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UBo-Eg-LsV" userLabel="LeftLine">
+                            <color key="backgroundColor" white="1" alpha="0.15150482382550334" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="2" id="09f-kb-dyy"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="JyB-tA-FtH" firstAttribute="leading" secondItem="rXL-SX-a9h" secondAttribute="trailing" constant="4" id="46a-Sc-mwQ"/>
+                <constraint firstItem="L9Y-dS-8py" firstAttribute="trailing" secondItem="rXL-SX-a9h" secondAttribute="leading" constant="-4" id="HjN-IG-3vK"/>
+                <constraint firstItem="rXL-SX-a9h" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="OUd-aR-Aqn"/>
+                <constraint firstItem="8Ha-hu-uXI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="PEn-R0-iPE"/>
+                <constraint firstItem="JyB-tA-FtH" firstAttribute="centerY" secondItem="rXL-SX-a9h" secondAttribute="centerY" id="Qi5-CA-frm"/>
+                <constraint firstItem="L9Y-dS-8py" firstAttribute="leading" secondItem="8Ha-hu-uXI" secondAttribute="trailing" constant="8" id="R89-yr-SFy"/>
+                <constraint firstItem="8Ha-hu-uXI" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" constant="-8" id="ap7-dN-gOY"/>
+                <constraint firstItem="8Ha-hu-uXI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="dAS-2q-RBf"/>
+                <constraint firstItem="rXL-SX-a9h" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="f8d-ii-Chf"/>
+                <constraint firstItem="JyB-tA-FtH" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" constant="-8" id="xUN-tr-dlh"/>
+                <constraint firstItem="L9Y-dS-8py" firstAttribute="centerY" secondItem="rXL-SX-a9h" secondAttribute="centerY" id="zws-5i-Kqr"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="35.5" y="53.5"/>
+        </view>
+        <view contentMode="scaleToFill" id="dZ7-a7-aUn">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="SymbolOrange9" width="297" height="297"/>
+    </resources>
+</document>
