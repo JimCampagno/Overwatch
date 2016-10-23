@@ -14,6 +14,11 @@
 		7D0145A81DBC0F48002FA6E7 /* HeroTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0145A71DBC0F48002FA6E7 /* HeroTableViewController.swift */; };
 		7D0145AA1DBC3EA1002FA6E7 /* HeroSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D0145A91DBC3EA1002FA6E7 /* HeroSectionView.xib */; };
 		7D0145AC1DBC3EB2002FA6E7 /* HeroSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0145AB1DBC3EB2002FA6E7 /* HeroSectionView.swift */; };
+		7D16556E1DBD155F00A69CDE /* McCreeWeaponView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D16556D1DBD155F00A69CDE /* McCreeWeaponView.xib */; };
+		7D1655701DBD156E00A69CDE /* McCreeWeaponView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D16556F1DBD156E00A69CDE /* McCreeWeaponView.swift */; };
+		7D1655741DBD1ABF00A69CDE /* smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D1655721DBD1ABF00A69CDE /* smoke.png */; };
+		7D1655761DBD2E7300A69CDE /* ItsHighNoon.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D1655751DBD2E7300A69CDE /* ItsHighNoon.mp3 */; };
+		7D1655781DBD3A4900A69CDE /* McCreeSmoke.scnp in Resources */ = {isa = PBXBuildFile; fileRef = 7D1655771DBD3A4900A69CDE /* McCreeSmoke.scnp */; };
 		7D168DA31DBB04420035B5D5 /* OverwatchHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D168DA21DBB04420035B5D5 /* OverwatchHero.swift */; };
 		7D168DA51DBB0EBB0035B5D5 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D168DA41DBB0EBB0035B5D5 /* Hero.swift */; };
 		7D6793251DBC876A0011D3D6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D6793241DBC876A0011D3D6 /* AVFoundation.framework */; };
@@ -36,6 +41,11 @@
 		7D0145A71DBC0F48002FA6E7 /* HeroTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroTableViewController.swift; sourceTree = "<group>"; };
 		7D0145A91DBC3EA1002FA6E7 /* HeroSectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeroSectionView.xib; sourceTree = "<group>"; };
 		7D0145AB1DBC3EB2002FA6E7 /* HeroSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroSectionView.swift; sourceTree = "<group>"; };
+		7D16556D1DBD155F00A69CDE /* McCreeWeaponView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = McCreeWeaponView.xib; sourceTree = "<group>"; };
+		7D16556F1DBD156E00A69CDE /* McCreeWeaponView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = McCreeWeaponView.swift; sourceTree = "<group>"; };
+		7D1655721DBD1ABF00A69CDE /* smoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smoke.png; sourceTree = "<group>"; };
+		7D1655751DBD2E7300A69CDE /* ItsHighNoon.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ItsHighNoon.mp3; sourceTree = "<group>"; };
+		7D1655771DBD3A4900A69CDE /* McCreeSmoke.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = McCreeSmoke.scnp; sourceTree = "<group>"; };
 		7D168DA21DBB04420035B5D5 /* OverwatchHero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverwatchHero.swift; sourceTree = "<group>"; };
 		7D168DA41DBB0EBB0035B5D5 /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		7D6793241DBC876A0011D3D6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -111,6 +121,11 @@
 				7D6793281DBC8A180011D3D6 /* GunShot2.wav */,
 				7D67932A1DBC941D0011D3D6 /* ElectricSound.wav */,
 				7D67932C1DBC96BD0011D3D6 /* ZaryaShot.wav */,
+				7D1655751DBD2E7300A69CDE /* ItsHighNoon.mp3 */,
+				7D16556D1DBD155F00A69CDE /* McCreeWeaponView.xib */,
+				7D16556F1DBD156E00A69CDE /* McCreeWeaponView.swift */,
+				7D1655721DBD1ABF00A69CDE /* smoke.png */,
+				7D1655771DBD3A4900A69CDE /* McCreeSmoke.scnp */,
 			);
 			path = Overwatch;
 			sourceTree = "<group>";
@@ -177,12 +192,16 @@
 			files = (
 				7D79E4D01DBB039D004E18F5 /* LaunchScreen.storyboard in Resources */,
 				7D67932B1DBC941D0011D3D6 /* ElectricSound.wav in Resources */,
+				7D1655761DBD2E7300A69CDE /* ItsHighNoon.mp3 in Resources */,
 				7D79E4CD1DBB039D004E18F5 /* Assets.xcassets in Resources */,
 				7D6793291DBC8A180011D3D6 /* GunShot2.wav in Resources */,
 				7D0145AA1DBC3EA1002FA6E7 /* HeroSectionView.xib in Resources */,
+				7D16556E1DBD155F00A69CDE /* McCreeWeaponView.xib in Resources */,
+				7D1655741DBD1ABF00A69CDE /* smoke.png in Resources */,
 				7D6793271DBC87A10011D3D6 /* GunShot.wav in Resources */,
 				7D0145A21DBBEBC7002FA6E7 /* HeroView.xib in Resources */,
 				7D67932D1DBC96BD0011D3D6 /* ZaryaShot.wav in Resources */,
+				7D1655781DBD3A4900A69CDE /* McCreeSmoke.scnp in Resources */,
 				7D79E4CB1DBB039D004E18F5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,6 +216,7 @@
 				7D0145A01DBBE8DC002FA6E7 /* Overwatch.swift in Sources */,
 				7D168DA31DBB04420035B5D5 /* OverwatchHero.swift in Sources */,
 				7D0145A41DBBEBF5002FA6E7 /* HeroView.swift in Sources */,
+				7D1655701DBD156E00A69CDE /* McCreeWeaponView.swift in Sources */,
 				7D79E4C81DBB039D004E18F5 /* ViewController.swift in Sources */,
 				7D79E4C61DBB039D004E18F5 /* AppDelegate.swift in Sources */,
 				7D0145A81DBC0F48002FA6E7 /* HeroTableViewController.swift in Sources */,
