@@ -54,7 +54,7 @@ class HeroSectionView: UIView {
         for i in (0...14) {
             let number = i != 0 ? String(i) : ""
             let image = UIImage(named: "SymbolOrange" + number)!
-            if i == 14 { images.append(contentsOf: [image, image, image, image, image]) }
+            if i == 14 { images.append(contentsOf: [image, image, image, image, image, image, image, image]) }
             images.append(image)
         }
         index = images.count
@@ -65,7 +65,7 @@ class HeroSectionView: UIView {
         if index < 0 { index = images.count - 1 }
         let image = images[index]
         
-        UIView.transition(with: symbolImageView, duration: 0.1, options: .transitionCrossDissolve, animations: {
+        UIView.transition(with: symbolImageView, duration: 0.3, options: .transitionCrossDissolve, animations: {
             self.symbolImageView.image = image
             }) { success in
                 self.repeatingAnimation()

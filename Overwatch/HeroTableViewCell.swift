@@ -43,4 +43,8 @@ class HeroTableViewCell: UITableViewCell {
         heroView.constrainEdges(to: contentView)
     }
     
+    
+    
+
+    
 }

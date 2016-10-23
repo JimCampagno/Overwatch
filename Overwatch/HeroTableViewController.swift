@@ -12,7 +12,7 @@ class HeroTableViewController: UITableViewController {
     
     var heroes: [Hero]!
     var types: [Type]!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,19 +26,30 @@ class HeroTableViewController: UITableViewController {
         heroes = [genji, mcCree, pharah, reaper, tracer, soldier]
         types = Type.allTypes
         view.backgroundColor = UIColor.lightBlack
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
+        tableView.addGestureRecognizer(gestureRecognizer)
     }
-
-   
+    
+    func viewTapped(_ sender: UITapGestureRecognizer) {
+        let point = sender.location(in: tableView)
+        let index = tableView.indexPathForRow(at: point)
+        UIView.animateRainbow(in: tableView, center: point) { success in
+            
+            
+            print("We super complete.")
+        }
+    }
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return heroes.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HeroCell", for: indexPath) as! HeroTableViewCell
         return cell
@@ -53,7 +64,7 @@ class HeroTableViewController: UITableViewController {
         return 150
     }
     
-
+    
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let width = Int(tableView.frame.size.width)
         let height = HeroSectionView.height
@@ -66,7 +77,73 @@ class HeroTableViewController: UITableViewController {
         return CGFloat(HeroSectionView.height)
     }
     
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+    }
+    
+    
+}
 
+extension UIView {
+    static func animateRainbow(in view: UIView, center: CGPoint, handler: @escaping (Bool) -> Void) {
+        var images: [UIImage] = []
+        
+        for i in 1...4 {
+            let image = UIImage(named: "Circle" + String(i))!
+            images.append(image)
+        }
+        let image = images.removeFirst()
+        let width = image.size.width
+        let height = image.size.height
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 140, height: 140))
+        imageView.frame.size = CGSize(width: width, height: height)
+        imageView.image = image
+        view.addSubview(imageView)
+        imageView.center = center
+        imageView.alpha = 0.7
+        
+        imageView.animate(images: images, duration: 0.08, center: center) { complete in
+            
+            print("We are complete.")
+            handler(true)
+        }
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+}
+
+extension UIImageView {
+    func animate(images: [UIImage]?, duration: TimeInterval, center: CGPoint, handler: @escaping (Bool) -> Void) {
+        guard var images = images else { handler(true); return }
+        
+        let currentImage = images.removeFirst()
+        let expandingView = UIView(frame: CGRect(x: 0, y: 0, width: currentImage.size.width, height: currentImage.size.height))
+        addSubview(expandingView)
+        expandingView.layer.borderWidth = 3
+        expandingView.layer.borderColor = UIColor(red:0.09, green:0.69, blue:0.98, alpha:1.00).cgColor
+        expandingView.layer.cornerRadius = expandingView.frame.size.height / 2
+        expandingView.layer.masksToBounds = true
+        
+        UIView.transition(with: self, duration: duration, options: .transitionCrossDissolve, animations: {
+            self.image = currentImage
+            self.frame.size = currentImage.size
+            self.center = center
+            expandingView.transform = CGAffineTransform(scaleX: 5, y: 5)
+            expandingView.alpha = 0.0
+            self.alpha -= 0.4
+        }) { _ in
+            self.animate(images: images.isEmpty ? nil : images, duration: duration, center: center, handler: handler)
+        }
+    }
+    
 }
 
 extension UIColor {

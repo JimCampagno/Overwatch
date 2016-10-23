@@ -24,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="399" y="120"/>
         </scene>
-        <!--Heroes-->
+        <!--Overwatch-->
         <scene sceneID="LyB-hS-atd">
             <objects>
                 <tableViewController id="FGi-Ek-Feh" customClass="HeroTableViewController" customModule="Overwatch" customModuleProvider="target" sceneMemberID="viewController">
@@ -47,7 +47,7 @@
                             <outlet property="delegate" destination="FGi-Ek-Feh" id="3jR-EF-dqx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Heroes" id="UE4-vJ-J5n"/>
+                    <navigationItem key="navigationItem" title="Overwatch" id="UE4-vJ-J5n"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0M6-Qa-KxI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
