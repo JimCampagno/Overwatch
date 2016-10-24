@@ -11,86 +11,25 @@ import AVFoundation
 
 class HeroTableViewController: UITableViewController {
     
-    var types: [Type]!
     var heroes: [Type : [Hero]]!
     var audioPlayer: AVAudioPlayer!
     var sectionViews: [HeroSectionView]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let genji = Hero(name: .genji)
-        let mcCree = Hero(name: .mcCree)
-        let pharah = Hero(name: .pharah)
-        let reaper = Hero(name: .reaper)
-        let tracer = Hero(name: .tracer)
-        let soldier = Hero(name: .soldier)
-        
-        heroes = [.offense : [genji, mcCree, pharah, reaper, tracer, soldier], .defense : [genji, mcCree, pharah, reaper, tracer, soldier]]
-        types = Type.allTypes
-        view.backgroundColor = UIColor.lightBlack
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
-        tableView.addGestureRecognizer(gestureRecognizer)
-        let filePath = Bundle.main.path(forResource: "GunShot", ofType: "wav")!
-        let url = URL(fileURLWithPath: filePath)
-        audioPlayer = try! AVAudioPlayer(contentsOf: url)
-        
-        let mcCreeWeapon = McCreeWeaponView(frame: CGRect(x: 0, y: 0, width: 70, height: 35))
-        let barButtonItem = UIBarButtonItem(customView: mcCreeWeapon)
-        navigationItem.rightBarButtonItem = barButtonItem
+        setup()
+        addGestureRecognizer(to: tableView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         createSectionViews()
-            }
-    
-    func createSectionViews() {
-        let width = Int(tableView.frame.size.width)
-        let height = HeroSectionView.height
-        let frame = CGRect(x: 0, y: 0, width: width, height: height)
-        
-        let offenseSection = HeroSectionView(frame: frame)
-        offenseSection.type = .offense
-        let defenseSection = HeroSectionView(frame: frame)
-        defenseSection.type = .defense
-        let tankSection = HeroSectionView(frame: frame)
-        tankSection.type = .tank
-        let supportSection = HeroSectionView(frame: frame)
-        supportSection.type = .support
-        
-        
-        sectionViews = [offenseSection, defenseSection, tankSection, supportSection]
     }
     
-    func viewTapped(_ sender: UITapGestureRecognizer) {
-        audioPlayer.play()
-        tableView.isUserInteractionEnabled = false
-        let point = sender.location(in: tableView)
-        let index = tableView.indexPathForRow(at: point)!
-        let cell = self.tableView.cellForRow(at: index) as! HeroTableViewCell
-        self.tableView.isUserInteractionEnabled = true
-        let viewableCells = self.tableView.visibleCells as! [HeroTableViewCell]
-        let nonTappedCells = viewableCells.filter { $0 != cell }
-        let rect = self.tableView.rectForRow(at: index)
-        let dummyView = cell.heroView.copy(with: rect) as! HeroView
-        self.tableView.addSubview(dummyView)
-    
-        UIView.animate(withDuration: 0.2, animations: {
-            nonTappedCells.forEach { $0.heroView.alpha = 0.8 }
-            dummyView.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
-            dummyView.alpha = 0.0
-            
-        })
+}
 
-        UIView.animateRainbow(in: tableView, center: point) { success in
-            DispatchQueue.main.async {
-                print("We super complete.")
-            }
-        }
-    }
-    
-    // MARK: - Table view data source
+// MARK: - UITableView Methods
+extension HeroTableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return heroes.count
@@ -122,7 +61,6 @@ class HeroTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
         let heroSectionView = sectionViews[section]
         heroSectionView.willDisplay()
         return heroSectionView
@@ -132,33 +70,95 @@ class HeroTableViewController: UITableViewController {
         return CGFloat(HeroSectionView.height)
     }
     
+}
+
+
+// MARK: - Setup Methods
+extension HeroTableViewController {
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func setup() {
+        setupAudioPlayer()
+        setupBarButtonItem()
+        heroes = [.offense : Hero.offense, .defense : Hero.offense]
+        view.backgroundColor = UIColor.lightBlack
+    }
+    
+    func setupAudioPlayer() {
+        let filePath = Bundle.main.path(forResource: "GunShot", ofType: "wav")!
+        let url = URL(fileURLWithPath: filePath)
+        audioPlayer = try! AVAudioPlayer(contentsOf: url)
+    }
+    
+    func setupBarButtonItem() {
+        let mcCreeWeapon = McCreeWeaponView(frame: CGRect(x: 0, y: 0, width: 70, height: 35))
+        let barButtonItem = UIBarButtonItem(customView: mcCreeWeapon)
+        navigationItem.rightBarButtonItem = barButtonItem
+    }
+    
+    func addGestureRecognizer(to view: UIView) {
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
+        view.addGestureRecognizer(gestureRecognizer)
+    }
+    
+}
+
+// MARK: - Section Header Views
+extension HeroTableViewController {
+    
+    func createSectionViews() {
+        let width = Int(tableView.frame.size.width)
+        let height = HeroSectionView.height
+        let frame = CGRect(x: 0, y: 0, width: width, height: height)
         
+        let offense = HeroSectionView(frame: frame, type: .offense)
+        let defense = HeroSectionView(frame: frame, type: .defense)
+        let tank = HeroSectionView(frame: frame, type: .tank)
+        let support = HeroSectionView(frame: frame, type: .support)
         
+        sectionViews = [offense, defense, tank, support]
+    }
+    
+}
+
+// MARK: - Action Methods
+extension HeroTableViewController {
+    
+    func viewTapped(_ sender: UITapGestureRecognizer) {
+        // TODO: Does AVAudioPlayer have a delegate that will let us know when the sound file is done playing?
+        // TODO: If so, then we have a flag in the provided method that gets switched on.
+        // TODO: That switch is checked here in this method when it's called. If a certain condition, then we create a nother AVPlayer to play the identical sound.
+        // TODO: ---- WHY? AVAudioPlayer doesn't allow you to play multiple sounds (or even queue them up) on this same AVAudioPlayer instance.
+        // TODO: -----WHY? A person will need to tap the screen multiple times (faster than when the sound files stop playing).
+        // TODO: -----WHY? We want then for every tap (shot) for this gunshot sound to play
+        audioPlayer.play()
+        tableView.isUserInteractionEnabled = false
+        let point = sender.location(in: tableView)
+        let index = tableView.indexPathForRow(at: point)!
+        let cell = self.tableView.cellForRow(at: index) as! HeroTableViewCell
+        self.tableView.isUserInteractionEnabled = true
+        let viewableCells = self.tableView.visibleCells as! [HeroTableViewCell]
+        let nonTappedCells = viewableCells.filter { $0 != cell }
+        let rect = self.tableView.rectForRow(at: index)
+        let dummyView = cell.heroView.copy(with: rect) as! HeroView
+        self.tableView.addSubview(dummyView)
+        
+        UIView.animate(withDuration: 0.2, animations: {
+            nonTappedCells.forEach { $0.heroView.alpha = 0.8 }
+            dummyView.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+            dummyView.alpha = 0.0
+            
+        })
+        
+        UIView.animateRainbow(in: tableView, center: point) { success in
+            DispatchQueue.main.async {
+                print("We super complete.")
+            }
+        }
     }
     
     
 }
 
-// MARK: - UIScrollView Delegate
-extension HeroTableViewController {
-    
-    override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-    }
-    
-    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-    }
-    
-    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-    }
-    
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-             }
-    
-    
-    
-}
+
 
 

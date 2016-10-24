@@ -32,6 +32,12 @@ class HeroSectionView: UIView {
         commonInit()
     }
     
+    init(frame: CGRect, type: Type) {
+        super.init(frame: frame)
+        commonInit()
+        self.type = type
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -58,11 +64,14 @@ extension HeroSectionView {
     
     fileprivate func produceImages() {
         for i in (0...14) {
-            let number = i != 0 ? String(i) : ""
-            let image = UIImage(named: "SymbolOrange" + number)!
+            let numberString = i != 0 ? String(i) : ""
+            let image = UIImage(named: "SymbolOrange" + numberString)!
             if i == 14 { images.append(contentsOf: [image, image, image, image, image, image, image, image]) }
             images.append(image)
         }
+        
+        print("Able to produce images! there are \(images.count) available.")
+        
         index = images.count
     }
     
@@ -106,6 +115,7 @@ extension HeroSectionView {
 extension HeroSectionView {
     
     func willDisplay() {
+        print("Will Display called, how many elements in images = \(images.count)")
         stopAnimations = false
         index = 14
         animateSymbol()

@@ -10,4 +10,14 @@ import Foundation
 
 struct Hero: OverwatchHero {
     var name: Name
+    
+    static var offense: [Hero] {
+        let genji = Hero(name: .genji)
+        let mcCree = Hero(name: .mcCree)
+        let pharah = Hero(name: .pharah)
+        let reaper = Hero(name: .reaper)
+        let tracer = Hero(name: .tracer)
+        let soldier = Hero(name: .soldier)
+        return [genji, mcCree, pharah, reaper, tracer, soldier]
+    }
 }
