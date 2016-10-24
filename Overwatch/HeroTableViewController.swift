@@ -15,6 +15,9 @@ class HeroTableViewController: UITableViewController {
     var audioPlayer: AVAudioPlayer!
     var sectionViews: [HeroSectionView]!
     var heroview: HeroView!
+    var selectedFrame: CGRect!
+    var selectedHero: Hero!
+
     
     var topConstraint: NSLayoutConstraint!
     var heightConstraint: NSLayoutConstraint!
@@ -53,10 +56,8 @@ extension HeroTableViewController {
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let heroCell = cell as! HeroTableViewCell
-        let sortedTypes = Array(heroes.keys).sorted { $0 < $1 }
-        let type = sortedTypes[indexPath.section]
+        let type = Type.allTypes[indexPath.section]
         let heroesForType = heroes[type]!
-        heroCell.alpha = 1.0
         heroCell.hero = heroesForType[indexPath.row]
     }
     
@@ -67,6 +68,7 @@ extension HeroTableViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let heroSectionView = sectionViews[section]
+        heroSectionView.type = Type.allTypes[section]
         heroSectionView.willDisplay()
         return heroSectionView
     }
@@ -95,7 +97,7 @@ extension HeroTableViewController {
     func setup() {
         setupAudioPlayer()
         setupBarButtonItem()
-        heroes = [.offense : Hero.offense, .defense : Hero.offense]
+        heroes = [.offense : Hero.offense, .defense : Hero.defense]
         view.backgroundColor = UIColor.lightBlack
     }
     
@@ -143,7 +145,7 @@ extension HeroTableViewController {
         let point = sender.location(in: tableView)
         let indexPath = tableView.indexPathForRow(at: point)!
         let cell = retrieveCell(for: indexPath, at: point)
-//        tableView.isUserInteractionEnabled = false
+        tableView.isUserInteractionEnabled = false
         
         runAnimations(with: cell, indexPath: indexPath)
         animateSelection(at: point)
@@ -155,10 +157,8 @@ extension HeroTableViewController {
     }
     
     func runAnimations(with cell: HeroTableViewCell, indexPath: IndexPath) {
-        scale(cell: cell, indexPath: indexPath) { [unowned self] _ in
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "DetailSegue", sender: nil)
-            }
+        scale(cell: cell, indexPath: indexPath) { _ in
+            self.tableView.isUserInteractionEnabled = true
         }
     }
     
@@ -170,35 +170,46 @@ extension HeroTableViewController {
         let frame = CGRect(origin: origin, size: rect.size)
         
         heroview = cell.heroView.copy(with: rect) as! HeroView
+        selectedHero = heroview.hero
+        selectedFrame = frame
         tableView.addSubview(heroview)
+    
+        delay(0.1) { [unowned self] _ in
+            self.performSegue(withIdentifier: "DetailSegue", sender: nil)
+
+        }
         
-        UIView.animate(withDuration: 0.1, animations: {
-            self.heroview.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
-            self.heroview.alpha = 0.0
+        UIView.animate(withDuration: 0.3, animations: {
+            self.heroview.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+            self.heroview.alpha = 0.5
             
         }) { [unowned self] _ in
             DispatchQueue.main.async {
-                self.heroview.transform = CGAffineTransform(scaleX: 1, y: 1)
-                self.heroview.frame = frame
+                self.tableView.willRemoveSubview(self.heroview)
+                self.heroview.removeFromSuperview()
+
                 handler()
             }
-            
         }
         
-        
+    }
+    
+    func delay(_ delay:Double, closure:@escaping ()->()) {
+        let when = DispatchTime.now() + delay
+        DispatchQueue.main.asyncAfter(deadline: when, execute: closure)
     }
 
 }
+
+
 
 // MARK: - Segue Methods
 extension HeroTableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destVC = segue.destination as! HeroDetailViewController
-        destVC.selectedFrame = heroview.frame
-        print("HeroViews frame is \(heroview.frame)")
-        destVC.hero = heroview.hero
-        print("HeroViews hero is \(heroview.hero)")
+        destVC.selectedFrame = selectedFrame
+        destVC.hero = selectedHero
     }
     
 }

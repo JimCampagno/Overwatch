@@ -10,7 +10,7 @@ import UIKit
 
 class HeroSectionView: UIView {
     
-    static let height = 45
+    static let height = 50
     static let width = 375
     
     @IBOutlet var contentView: UIView!

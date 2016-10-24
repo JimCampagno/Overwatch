@@ -102,6 +102,13 @@ extension OverwatchHero {
         case .reaper: return #imageLiteral(resourceName: "Reaper")
         case .soldier: return #imageLiteral(resourceName: "Soldier")
         case .tracer: return #imageLiteral(resourceName: "Tracer")
+            
+        case .bastion: return #imageLiteral(resourceName: "Bastion")
+        case .hanzo: return #imageLiteral(resourceName: "Hanzo")
+        case .junkrat: return #imageLiteral(resourceName: "Junkrat")
+        case .mei: return #imageLiteral(resourceName: "Mei")
+        case .torbjorn: return #imageLiteral(resourceName: "Torbjorn")
+        case .widowmaker: return #imageLiteral(resourceName: "Widowmaker")
         }
         
     }

@@ -20,4 +20,14 @@ struct Hero: OverwatchHero {
         let soldier = Hero(name: .soldier)
         return [genji, mcCree, pharah, reaper, tracer, soldier]
     }
+    
+    static var defense: [Hero] {
+        let bastion = Hero(name: .bastion)
+        let hanzo = Hero(name: .hanzo)
+        let junkrat = Hero(name: .junkrat)
+        let mei = Hero(name: .mei)
+        let torbjorn = Hero(name: .torbjorn)
+        let widowmaker = Hero(name: .widowmaker)
+        return [bastion, hanzo, junkrat, mei, torbjorn, widowmaker]
+    }
 }

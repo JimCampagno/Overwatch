@@ -54,7 +54,8 @@ class HeroView: UIView, NSCopying {
         heroImageView.image = hero.image
         heroNameLabel.text = hero.nickName
         realNameAgeLabel.text = hero.realNameAndAge
-        occupationLabel.text = hero.occupation
+        // TODO: Not occupation
+        occupationLabel.text = hero.nickName
         baseOfOperationsLabel.text = hero.baseOfOperations
         
         let affiliations = hero.affiliations
