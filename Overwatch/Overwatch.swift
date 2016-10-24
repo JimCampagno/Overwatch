@@ -11,21 +11,9 @@ import Foundation
 
 struct Overwatch {
     
-    
     let offense: [Hero]
     let defense: [Hero]
     let tank: [Hero]
     let support: [Hero]
-    
-    
-    
-    
-    
-    func allOffenseHeroes() {
-        
-        
-        
-    }
-    
     
 }

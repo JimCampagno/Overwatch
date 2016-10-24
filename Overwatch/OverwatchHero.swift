@@ -36,7 +36,13 @@ extension OverwatchHero {
         case .reaper: return "\(BaseOfOperations.unknown)"
         case .soldier: return "\(BaseOfOperations.unknown)"
         case .tracer: return "\(BaseOfOperations.london)"
-
+            
+        case .bastion: return "\(BaseOfOperations.unknown)"
+        case .hanzo: return "\(BaseOfOperations.hanamura(formerly: true))"
+        case .junkrat: return "\(BaseOfOperations.junkertown(formerly: true))"
+        case .mei: return "\(BaseOfOperations.xian(formerly: true))"
+        case .torbjorn: return "\(BaseOfOperations.gothenburg)"
+        case .widowmaker: return "\(BaseOfOperations.annecy)"
         }
     }
     
@@ -48,6 +54,15 @@ extension OverwatchHero {
         case .reaper: return "\(Occupation.mercenary)"
         case .soldier: return "\(Occupation.vigilante)"
         case .tracer: return "\(Occupation.adventurer)"
+            
+        case .bastion: return "\(Occupation.battleAutomaton)"
+        case .hanzo: return "\(Occupation.mercenary), \(Occupation.assassin)"
+        case .junkrat: return "\(Occupation.anarchist), \(Occupation.thief), \(Occupation.demolitionist), \(Occupation.mercenary), \(Occupation.scavenger)"
+        case .mei: return "\(Occupation.climatologist), \(Occupation.adventurer)"
+        case .torbjorn: return "\(Occupation.weaponsDesigner)"
+        case .widowmaker: return "\(Occupation.assassin)"
+
+        
         }
     }
     
@@ -59,12 +74,21 @@ extension OverwatchHero {
         case .reaper: return "Unknown"
         case .soldier: return "Unknown"
         case .tracer: return "26"
+            
+        case .bastion: return "30"
+        case .hanzo: return "38"
+        case .junkrat: return "25"
+        case .mei: return "31"
+        case .torbjorn: return "57"
+        case .widowmaker: return "33"
+
         }
     }
     
     var type: String {
         switch name {
         case .genji, .mcCree, .pharah, .reaper, .soldier, .tracer: return "\(Type.offense)"
+        case .bastion, .hanzo, .junkrat, .mei, .torbjorn, .widowmaker: return "\(Type.defense)"
         }
         
         
@@ -93,18 +117,20 @@ extension OverwatchHero {
     
     var affiliations: [Affiliation] {
         switch name {
-        case .genji:
-            return [Affiliation.shimadaClan(formerly: true), Affiliation.overwatch(formerly: true)]
-        case .mcCree:
-            return [Affiliation.overwatch(formerly: true)]
-        case .pharah:
-            return [Affiliation.helix]
-        case .reaper:
-            return [Affiliation.unknown]
-        case .soldier:
-            return [Affiliation.overwatch(formerly: true)]
-        case .tracer:
-            return [Affiliation.overwatch(formerly: true)]
+        case .genji: return [Affiliation.shimadaClan(formerly: true), Affiliation.overwatch(formerly: true)]
+        case .mcCree: return [Affiliation.overwatch(formerly: true)]
+        case .pharah: return [Affiliation.helix]
+        case .reaper: return [Affiliation.unknown]
+        case .soldier: return [Affiliation.overwatch(formerly: true)]
+        case .tracer: return [Affiliation.overwatch(formerly: true)]
+            
+        case .bastion: return [Affiliation.none]
+        case .hanzo: return [Affiliation.shimadaClan(formerly: false)]
+        case .junkrat: return [Affiliation.junkers(formerly: true)]
+        case .mei: return [Affiliation.overwatch(formerly: true)]
+        case .torbjorn: return [Affiliation.overwatch(formerly: true)]
+        case .widowmaker: return [Affiliation.talon]
+            
         }
     }
     
