@@ -143,7 +143,7 @@ extension HeroTableViewController {
     
     func viewTapped(_ sender: UITapGestureRecognizer) {
         let point = sender.location(in: tableView)
-        let indexPath = tableView.indexPathForRow(at: point)!
+        guard let indexPath = tableView.indexPathForRow(at: point) else { return }
         let cell = retrieveCell(for: indexPath, at: point)
         tableView.isUserInteractionEnabled = false
         
