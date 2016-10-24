@@ -14,6 +14,12 @@ class HeroTableViewController: UITableViewController {
     var heroes: [Type : [Hero]]!
     var audioPlayer: AVAudioPlayer!
     var sectionViews: [HeroSectionView]!
+    var heroview: HeroView!
+    
+    var topConstraint: NSLayoutConstraint!
+    var heightConstraint: NSLayoutConstraint!
+    
+    var selectionMade = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +58,7 @@ extension HeroTableViewController {
         let sortedTypes = Array(heroes.keys).sorted { $0 < $1 }
         let type = sortedTypes[indexPath.section]
         let heroesForType = heroes[type]!
+        heroCell.alpha = 1.0
         heroCell.hero = heroesForType[indexPath.row]
     }
     
@@ -70,6 +77,17 @@ extension HeroTableViewController {
         return CGFloat(HeroSectionView.height)
     }
     
+    func retrieveCell(for indexPath: IndexPath, at point: CGPoint) -> HeroTableViewCell {
+        let cell = self.tableView.cellForRow(at: indexPath) as! HeroTableViewCell
+        return cell
+    }
+    
+    func visibleCells(excluding cell: HeroTableViewCell) -> [HeroTableViewCell] {
+        let viewableCells = self.tableView.visibleCells as! [HeroTableViewCell]
+        let nonTappedCells = viewableCells.filter { $0 != cell }
+        return nonTappedCells
+    }
+    
 }
 
 
@@ -84,7 +102,7 @@ extension HeroTableViewController {
     }
     
     func setupAudioPlayer() {
-        let filePath = Bundle.main.path(forResource: "GunShot", ofType: "wav")!
+        let filePath = Bundle.main.path(forResource: "ElectricSound", ofType: "wav")!
         let url = URL(fileURLWithPath: filePath)
         audioPlayer = try! AVAudioPlayer(contentsOf: url)
     }
@@ -124,40 +142,132 @@ extension HeroTableViewController {
 extension HeroTableViewController {
     
     func viewTapped(_ sender: UITapGestureRecognizer) {
-        // TODO: Does AVAudioPlayer have a delegate that will let us know when the sound file is done playing?
-        // TODO: If so, then we have a flag in the provided method that gets switched on.
-        // TODO: That switch is checked here in this method when it's called. If a certain condition, then we create a nother AVPlayer to play the identical sound.
-        // TODO: ---- WHY? AVAudioPlayer doesn't allow you to play multiple sounds (or even queue them up) on this same AVAudioPlayer instance.
-        // TODO: -----WHY? A person will need to tap the screen multiple times (faster than when the sound files stop playing).
-        // TODO: -----WHY? We want then for every tap (shot) for this gunshot sound to play
-        audioPlayer.play()
-        tableView.isUserInteractionEnabled = false
         let point = sender.location(in: tableView)
-        let index = tableView.indexPathForRow(at: point)!
-        let cell = self.tableView.cellForRow(at: index) as! HeroTableViewCell
-        self.tableView.isUserInteractionEnabled = true
-        let viewableCells = self.tableView.visibleCells as! [HeroTableViewCell]
-        let nonTappedCells = viewableCells.filter { $0 != cell }
-        let rect = self.tableView.rectForRow(at: index)
-        let dummyView = cell.heroView.copy(with: rect) as! HeroView
-        self.tableView.addSubview(dummyView)
+        let indexPath = tableView.indexPathForRow(at: point)!
+        let cell = retrieveCell(for: indexPath, at: point)
+        selectionMade = true
+        tableView.isUserInteractionEnabled = false
         
-        UIView.animate(withDuration: 0.2, animations: {
-            nonTappedCells.forEach { $0.heroView.alpha = 0.8 }
-            dummyView.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
-            dummyView.alpha = 0.0
+        audioPlayer.play()
+        animateSelection(at: point)
+        runAnimations(with: cell, indexPath: indexPath)
+    }
+    
+    func animateSelection(at point: CGPoint) {
+        UIView.animateRainbow(in: tableView, center: point) {  [unowned self] _ in
             
-        })
+        }
         
-        UIView.animateRainbow(in: tableView, center: point) { success in
+    }
+    
+    func runAnimations(with cell: HeroTableViewCell, indexPath: IndexPath) {
+        scale(cell: cell, indexPath: indexPath) { [unowned self] _ in
             DispatchQueue.main.async {
-                print("We super complete.")
+                self.performSegue(withIdentifier: "DetailSegue", sender: nil)
             }
         }
     }
     
+    func scale(cell: HeroTableViewCell, indexPath: IndexPath, handler: @escaping () -> Void) {
+        let rect = tableView.rectForRow(at: indexPath)
+        let y = abs(self.tableView.contentOffset.y - rect.origin.y)
+        let origin = CGPoint(x: 0.0, y: y)
+        
+        let frame = CGRect(origin: origin, size: rect.size)
+        
+        heroview = cell.heroView.copy(with: rect) as! HeroView
+        tableView.addSubview(heroview)
+        
+        UIView.animate(withDuration: 0.2, animations: {
+            self.heroview.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+            self.heroview.alpha = 0.0
+            
+        }) { [unowned self] _ in
+            DispatchQueue.main.async {
+                self.heroview.transform = CGAffineTransform(scaleX: 1, y: 1)
+                self.heroview.frame = frame
+                handler()
+            }
+            
+        }
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    //        tableView.addSubview(heroview)
+    //
+    //        topConstraint = heroview.topAnchor.constraint(equalTo: tableView.topAnchor, constant: rect.origin.y)
+    //        topConstraint.isActive = true
+    //        let centerXConstraint = heroview.centerXAnchor.constraint(equalTo: tableView.centerXAnchor)
+    //        centerXConstraint.isActive = true
+    //        heightConstraint = heroview.heightAnchor.constraint(equalToConstant: rect.size.height)
+    //        heightConstraint.isActive = true
+    //        heroview.widthAnchor.constraint(equalToConstant: rect.size.width).isActive = true
+    //
+    //        UIView.animate(withDuration: 0.2, animations: {
+    //            self.heroview.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+    //            self.heroview.alpha = 0.0
+    //
+    //        }) { _ in
+    //            self.heroview.transform = CGAffineTransform(scaleX: 1, y: 1)
+    //            self.animateHeroView(with: cell)
+    //        }
+    
+    
+    //    func animateHeroView(with cell: HeroTableViewCell) {
+    //
+    //        let point = CGPoint(x: 0, y: -tableView.contentInset.top)
+    //        self.heroview.alpha = 1.0
+    //
+    //        UIView.animate(withDuration: 0.2) {
+    //
+    //        }
+    //
+    //        UIView.animate(withDuration: 1.5, delay: 0.0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.8, options: .curveEaseInOut, animations: {
+    //            self.heroview.center = CGPoint(x: 414/2, y: ((736 / 2) * 0.5))
+    //
+    //            // code
+    //        }) { _ in
+    //
+    //
+    //            // more code
+    //        }
+    //
+    //
+    //        UIView.transition(with: heroview, duration: 2.5, options: .curveEaseInOut, animations: {
+    //            // code
+    //        }) { _ in
+    //            // more code
+    //        }
+    //
+    //    }
+    
+    
     
 }
+
+// MARK: - Segue Methods
+extension HeroTableViewController {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destVC = segue.destination as! HeroDetailViewController
+        destVC.selectedFrame = heroview.frame
+        print("HeroViews frame is \(heroview.frame)")
+        destVC.hero = heroview.hero
+        print("HeroViews hero is \(heroview.hero)")
+    }
+    
+}
+
+
+
 
 
 

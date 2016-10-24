@@ -3,27 +3,10 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Overwatch" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="399" y="120"/>
-        </scene>
         <!--Overwatch-->
         <scene sceneID="LyB-hS-atd">
             <objects>
@@ -48,10 +31,75 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Overwatch" id="UE4-vJ-J5n"/>
+                    <connections>
+                        <segue destination="Qry-jr-enw" kind="presentation" identifier="DetailSegue" animates="NO" modalPresentationStyle="overFullScreen" id="red-y9-E2t"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0M6-Qa-KxI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2111.1999999999998" y="116.49175412293854"/>
+        </scene>
+        <!--Hero Detail View Controller-->
+        <scene sceneID="hYT-ni-utS">
+            <objects>
+                <viewController id="Qry-jr-enw" customClass="HeroDetailViewController" customModule="Overwatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AtH-AB-d5Y"/>
+                        <viewControllerLayoutGuide type="bottom" id="AIT-Kb-8cI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eTU-ZY-3EW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B5q-Cl-n2c">
+                                <view key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="GLQ-L1-An2">
+                                    <frame key="frameInset"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CellBackground" translatesAutoresizingMaskIntoConstraints="NO" id="K3h-bT-Jch">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="01C-by-uyb"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="8HH-Dc-cVB">
+                                <attributedString key="attributedText">
+                                    <fragment content="Reaper">
+                                        <attributes>
+                                            <color key="NSColor" red="0.0064704455435276031" green="0.65010702610015869" blue="0.90811640024185181" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="48" name="AvenirNext-DemiBold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AIT-Kb-8cI" firstAttribute="top" secondItem="B5q-Cl-n2c" secondAttribute="bottom" id="2Af-hH-egd"/>
+                            <constraint firstItem="B5q-Cl-n2c" firstAttribute="leading" secondItem="eTU-ZY-3EW" secondAttribute="leading" id="GWr-af-gIB"/>
+                            <constraint firstItem="K3h-bT-Jch" firstAttribute="top" secondItem="eTU-ZY-3EW" secondAttribute="topMargin" id="INm-qu-rXt"/>
+                            <constraint firstItem="K3h-bT-Jch" firstAttribute="leading" secondItem="eTU-ZY-3EW" secondAttribute="leading" id="L6d-YW-M6a"/>
+                            <constraint firstItem="8HH-Dc-cVB" firstAttribute="centerY" secondItem="K3h-bT-Jch" secondAttribute="centerY" id="O4E-be-bra"/>
+                            <constraint firstItem="K3h-bT-Jch" firstAttribute="trailing" secondItem="eTU-ZY-3EW" secondAttribute="trailing" id="Pz7-eH-XY1"/>
+                            <constraint firstItem="8HH-Dc-cVB" firstAttribute="centerX" secondItem="eTU-ZY-3EW" secondAttribute="centerX" id="bYk-vc-TKD"/>
+                            <constraint firstItem="B5q-Cl-n2c" firstAttribute="top" secondItem="eTU-ZY-3EW" secondAttribute="topMargin" id="htU-eI-l4e"/>
+                            <constraint firstItem="B5q-Cl-n2c" firstAttribute="trailing" secondItem="eTU-ZY-3EW" secondAttribute="trailing" id="uJz-SS-BDE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="heroLabel" destination="8HH-Dc-cVB" id="2GD-Ft-AWM"/>
+                        <outlet property="topImageView" destination="K3h-bT-Jch" id="eyx-Sl-7QX"/>
+                        <outlet property="visualEffectView" destination="B5q-Cl-n2c" id="y5X-ql-zKv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g6c-Fb-JQX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3048.8000000000002" y="115.59220389805098"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NLo-T2-ALV">
@@ -72,4 +120,7 @@
             <point key="canvasLocation" x="1172" y="116.49175412293854"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="CellBackground" width="789" height="366"/>
+    </resources>
 </document>

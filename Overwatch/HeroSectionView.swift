@@ -70,8 +70,6 @@ extension HeroSectionView {
             images.append(image)
         }
         
-        print("Able to produce images! there are \(images.count) available.")
-        
         index = images.count
     }
     
@@ -115,7 +113,6 @@ extension HeroSectionView {
 extension HeroSectionView {
     
     func willDisplay() {
-        print("Will Display called, how many elements in images = \(images.count)")
         stopAnimations = false
         index = 14
         animateSymbol()

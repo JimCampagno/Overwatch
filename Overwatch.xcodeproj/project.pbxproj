@@ -21,6 +21,7 @@
 		7D1655781DBD3A4900A69CDE /* McCreeSmoke.scnp in Resources */ = {isa = PBXBuildFile; fileRef = 7D1655771DBD3A4900A69CDE /* McCreeSmoke.scnp */; };
 		7D16557A1DBD5E6000A69CDE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1655791DBD5E6000A69CDE /* Extensions.swift */; };
 		7D16557C1DBD5F2200A69CDE /* HeroAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D16557B1DBD5F2200A69CDE /* HeroAttributes.swift */; };
+		7D1655831DBDA09D00A69CDE /* HeroDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1655821DBDA09D00A69CDE /* HeroDetailViewController.swift */; };
 		7D168DA31DBB04420035B5D5 /* OverwatchHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D168DA21DBB04420035B5D5 /* OverwatchHero.swift */; };
 		7D168DA51DBB0EBB0035B5D5 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D168DA41DBB0EBB0035B5D5 /* Hero.swift */; };
 		7D6793251DBC876A0011D3D6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D6793241DBC876A0011D3D6 /* AVFoundation.framework */; };
@@ -29,7 +30,6 @@
 		7D67932B1DBC941D0011D3D6 /* ElectricSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7D67932A1DBC941D0011D3D6 /* ElectricSound.wav */; };
 		7D67932D1DBC96BD0011D3D6 /* ZaryaShot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7D67932C1DBC96BD0011D3D6 /* ZaryaShot.wav */; };
 		7D79E4C61DBB039D004E18F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D79E4C51DBB039D004E18F5 /* AppDelegate.swift */; };
-		7D79E4C81DBB039D004E18F5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D79E4C71DBB039D004E18F5 /* ViewController.swift */; };
 		7D79E4CB1DBB039D004E18F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D79E4C91DBB039D004E18F5 /* Main.storyboard */; };
 		7D79E4CD1DBB039D004E18F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D79E4CC1DBB039D004E18F5 /* Assets.xcassets */; };
 		7D79E4D01DBB039D004E18F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D79E4CE1DBB039D004E18F5 /* LaunchScreen.storyboard */; };
@@ -50,6 +50,7 @@
 		7D1655771DBD3A4900A69CDE /* McCreeSmoke.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = McCreeSmoke.scnp; sourceTree = "<group>"; };
 		7D1655791DBD5E6000A69CDE /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7D16557B1DBD5F2200A69CDE /* HeroAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroAttributes.swift; sourceTree = "<group>"; };
+		7D1655821DBDA09D00A69CDE /* HeroDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroDetailViewController.swift; sourceTree = "<group>"; };
 		7D168DA21DBB04420035B5D5 /* OverwatchHero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverwatchHero.swift; sourceTree = "<group>"; };
 		7D168DA41DBB0EBB0035B5D5 /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		7D6793241DBC876A0011D3D6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -59,7 +60,6 @@
 		7D67932C1DBC96BD0011D3D6 /* ZaryaShot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ZaryaShot.wav; sourceTree = "<group>"; };
 		7D79E4C21DBB039D004E18F5 /* Overwatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Overwatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D79E4C51DBB039D004E18F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7D79E4C71DBB039D004E18F5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7D79E4CA1DBB039D004E18F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7D79E4CC1DBB039D004E18F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D79E4CF1DBB039D004E18F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -131,7 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				7D0145A71DBC0F48002FA6E7 /* HeroTableViewController.swift */,
-				7D79E4C71DBB039D004E18F5 /* ViewController.swift */,
+				7D1655821DBDA09D00A69CDE /* HeroDetailViewController.swift */,
 				7D79E4C51DBB039D004E18F5 /* AppDelegate.swift */,
 				7D79E4D11DBB039D004E18F5 /* Info.plist */,
 			);
@@ -264,7 +264,7 @@
 				7D168DA31DBB04420035B5D5 /* OverwatchHero.swift in Sources */,
 				7D0145A41DBBEBF5002FA6E7 /* HeroView.swift in Sources */,
 				7D1655701DBD156E00A69CDE /* McCreeWeaponView.swift in Sources */,
-				7D79E4C81DBB039D004E18F5 /* ViewController.swift in Sources */,
+				7D1655831DBDA09D00A69CDE /* HeroDetailViewController.swift in Sources */,
 				7D79E4C61DBB039D004E18F5 /* AppDelegate.swift in Sources */,
 				7D0145A81DBC0F48002FA6E7 /* HeroTableViewController.swift in Sources */,
 				7D0145A61DBC0EAC002FA6E7 /* HeroTableViewCell.swift in Sources */,

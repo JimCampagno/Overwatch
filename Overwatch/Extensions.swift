@@ -51,10 +51,9 @@ extension UIView {
         imageView.image = image
         view.addSubview(imageView)
         imageView.center = center
-        imageView.alpha = 0.5
+        imageView.alpha = 0.6
         
-        imageView.animate(images: images, duration: 0.08, center: center) { complete in
-            print("We are complete.")
+        imageView.animate(images: images, duration: 0.1, center: center) { complete in
             handler(true)
         }
     }
