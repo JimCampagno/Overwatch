@@ -19,8 +19,6 @@ class HeroTableViewController: UITableViewController {
     var topConstraint: NSLayoutConstraint!
     var heightConstraint: NSLayoutConstraint!
     
-    var selectionMade = false
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -145,19 +143,15 @@ extension HeroTableViewController {
         let point = sender.location(in: tableView)
         let indexPath = tableView.indexPathForRow(at: point)!
         let cell = retrieveCell(for: indexPath, at: point)
-        selectionMade = true
-        tableView.isUserInteractionEnabled = false
+//        tableView.isUserInteractionEnabled = false
         
-        audioPlayer.play()
-        animateSelection(at: point)
         runAnimations(with: cell, indexPath: indexPath)
+        animateSelection(at: point)
+        audioPlayer.play()
     }
     
     func animateSelection(at point: CGPoint) {
-        UIView.animateRainbow(in: tableView, center: point) {  [unowned self] _ in
-            
-        }
-        
+        UIView.animateRainbow(in: tableView, center: point) { _ in }
     }
     
     func runAnimations(with cell: HeroTableViewCell, indexPath: IndexPath) {
@@ -178,7 +172,7 @@ extension HeroTableViewController {
         heroview = cell.heroView.copy(with: rect) as! HeroView
         tableView.addSubview(heroview)
         
-        UIView.animate(withDuration: 0.2, animations: {
+        UIView.animate(withDuration: 0.1, animations: {
             self.heroview.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
             self.heroview.alpha = 0.0
             
@@ -193,64 +187,7 @@ extension HeroTableViewController {
         
         
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    //        tableView.addSubview(heroview)
-    //
-    //        topConstraint = heroview.topAnchor.constraint(equalTo: tableView.topAnchor, constant: rect.origin.y)
-    //        topConstraint.isActive = true
-    //        let centerXConstraint = heroview.centerXAnchor.constraint(equalTo: tableView.centerXAnchor)
-    //        centerXConstraint.isActive = true
-    //        heightConstraint = heroview.heightAnchor.constraint(equalToConstant: rect.size.height)
-    //        heightConstraint.isActive = true
-    //        heroview.widthAnchor.constraint(equalToConstant: rect.size.width).isActive = true
-    //
-    //        UIView.animate(withDuration: 0.2, animations: {
-    //            self.heroview.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
-    //            self.heroview.alpha = 0.0
-    //
-    //        }) { _ in
-    //            self.heroview.transform = CGAffineTransform(scaleX: 1, y: 1)
-    //            self.animateHeroView(with: cell)
-    //        }
-    
-    
-    //    func animateHeroView(with cell: HeroTableViewCell) {
-    //
-    //        let point = CGPoint(x: 0, y: -tableView.contentInset.top)
-    //        self.heroview.alpha = 1.0
-    //
-    //        UIView.animate(withDuration: 0.2) {
-    //
-    //        }
-    //
-    //        UIView.animate(withDuration: 1.5, delay: 0.0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.8, options: .curveEaseInOut, animations: {
-    //            self.heroview.center = CGPoint(x: 414/2, y: ((736 / 2) * 0.5))
-    //
-    //            // code
-    //        }) { _ in
-    //
-    //
-    //            // more code
-    //        }
-    //
-    //
-    //        UIView.transition(with: heroview, duration: 2.5, options: .curveEaseInOut, animations: {
-    //            // code
-    //        }) { _ in
-    //            // more code
-    //        }
-    //
-    //    }
-    
-    
-    
+
 }
 
 // MARK: - Segue Methods

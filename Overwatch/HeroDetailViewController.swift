@@ -30,16 +30,18 @@ class HeroDetailViewController: UIViewController {
         visualEffectView.addSubview(heroView)
         heroLabel.text = "\(hero.name)"
         heroLabel.alpha = 0.0
+        visualEffectView.alpha = 0.0
+        
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissView))
+        gestureRecognizer.numberOfTapsRequired = 1
+        view.addGestureRecognizer(gestureRecognizer)
     
-        UIView.animate(withDuration: 0.4) {
+        UIView.animate(withDuration: 0.3) {
             self.visualEffectView.alpha = 1.0
         }
         
         UIView.animate(withDuration: 0.8, delay: 0.6, options: .transitionCrossDissolve, animations: {
             self.heroLabel.alpha = 1.0
-
-            
-            
         }) { _ in }
         
         UIView.animate(withDuration: 0.9, animations: {
@@ -56,6 +58,15 @@ class HeroDetailViewController: UIViewController {
             
         }
         
+        
+    }
+    
+    func dismissView() {
+        UIView.animate(withDuration: 0.4, animations: {
+            self.view.subviews.forEach { $0.alpha = 0.0 }
+        }) { _ in
+            self.dismiss(animated: false, completion: nil)
+        }
         
     }
 
