@@ -33,6 +33,15 @@
 		7D79E4CB1DBB039D004E18F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D79E4C91DBB039D004E18F5 /* Main.storyboard */; };
 		7D79E4CD1DBB039D004E18F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D79E4CC1DBB039D004E18F5 /* Assets.xcassets */; };
 		7D79E4D01DBB039D004E18F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D79E4CE1DBB039D004E18F5 /* LaunchScreen.storyboard */; };
+		7DE52D301DC586C1000D680E /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DE52D2E1DC586C1000D680E /* star.png */; };
+		7DE52D321DC58844000D680E /* HeroPortraitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE52D311DC58844000D680E /* HeroPortraitView.swift */; };
+		7DE52D341DC5885A000D680E /* HeroPortraitView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DE52D331DC5885A000D680E /* HeroPortraitView.xib */; };
+		7DE52D381DC590C2000D680E /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DE52D361DC590C2000D680E /* spark.png */; };
+		7DE52D3C1DC59810000D680E /* confetti.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DE52D3A1DC59810000D680E /* confetti.png */; };
+		7DE52D421DC5998F000D680E /* bokeh.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DE52D401DC5998F000D680E /* bokeh.png */; };
+		7DE52D461DC59E46000D680E /* StarStuff.scnp in Resources */ = {isa = PBXBuildFile; fileRef = 7DE52D451DC59E46000D680E /* StarStuff.scnp */; };
+		7DE52D481DC5AAF3000D680E /* HeroStoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DE52D471DC5AAF3000D680E /* HeroStoryView.xib */; };
+		7DE52D4A1DC5AB0D000D680E /* HeroStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE52D491DC5AB0D000D680E /* HeroStoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +73,15 @@
 		7D79E4CC1DBB039D004E18F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D79E4CF1DBB039D004E18F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D79E4D11DBB039D004E18F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7DE52D2E1DC586C1000D680E /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		7DE52D311DC58844000D680E /* HeroPortraitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroPortraitView.swift; sourceTree = "<group>"; };
+		7DE52D331DC5885A000D680E /* HeroPortraitView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeroPortraitView.xib; sourceTree = "<group>"; };
+		7DE52D361DC590C2000D680E /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		7DE52D3A1DC59810000D680E /* confetti.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = confetti.png; sourceTree = "<group>"; };
+		7DE52D401DC5998F000D680E /* bokeh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bokeh.png; sourceTree = "<group>"; };
+		7DE52D451DC59E46000D680E /* StarStuff.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = StarStuff.scnp; sourceTree = "<group>"; };
+		7DE52D471DC5AAF3000D680E /* HeroStoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeroStoryView.xib; sourceTree = "<group>"; };
+		7DE52D491DC5AB0D000D680E /* HeroStoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroStoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,13 +113,17 @@
 			children = (
 				7D79E4C91DBB039D004E18F5 /* Main.storyboard */,
 				7D79E4CE1DBB039D004E18F5 /* LaunchScreen.storyboard */,
-				7D0145A11DBBEBC7002FA6E7 /* HeroView.xib */,
 				7D0145A31DBBEBF5002FA6E7 /* HeroView.swift */,
-				7D0145A91DBC3EA1002FA6E7 /* HeroSectionView.xib */,
+				7D0145A11DBBEBC7002FA6E7 /* HeroView.xib */,
 				7D0145AB1DBC3EB2002FA6E7 /* HeroSectionView.swift */,
-				7D16556D1DBD155F00A69CDE /* McCreeWeaponView.xib */,
+				7D0145A91DBC3EA1002FA6E7 /* HeroSectionView.xib */,
 				7D16556F1DBD156E00A69CDE /* McCreeWeaponView.swift */,
+				7D16556D1DBD155F00A69CDE /* McCreeWeaponView.xib */,
 				7D0145A51DBC0EAC002FA6E7 /* HeroTableViewCell.swift */,
+				7DE52D311DC58844000D680E /* HeroPortraitView.swift */,
+				7DE52D331DC5885A000D680E /* HeroPortraitView.xib */,
+				7DE52D491DC5AB0D000D680E /* HeroStoryView.swift */,
+				7DE52D471DC5AAF3000D680E /* HeroStoryView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -111,6 +133,11 @@
 			children = (
 				7D1655721DBD1ABF00A69CDE /* smoke.png */,
 				7D1655771DBD3A4900A69CDE /* McCreeSmoke.scnp */,
+				7DE52D2E1DC586C1000D680E /* star.png */,
+				7DE52D361DC590C2000D680E /* spark.png */,
+				7DE52D3A1DC59810000D680E /* confetti.png */,
+				7DE52D401DC5998F000D680E /* bokeh.png */,
+				7DE52D451DC59E46000D680E /* StarStuff.scnp */,
 			);
 			name = Nodes;
 			sourceTree = "<group>";
@@ -203,7 +230,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Gamesmith, LLC";
 				TargetAttributes = {
 					7D79E4C11DBB039C004E18F5 = {
@@ -239,16 +266,23 @@
 				7D79E4D01DBB039D004E18F5 /* LaunchScreen.storyboard in Resources */,
 				7D67932B1DBC941D0011D3D6 /* ElectricSound.wav in Resources */,
 				7D1655761DBD2E7300A69CDE /* ItsHighNoon.mp3 in Resources */,
+				7DE52D341DC5885A000D680E /* HeroPortraitView.xib in Resources */,
 				7D79E4CD1DBB039D004E18F5 /* Assets.xcassets in Resources */,
+				7DE52D3C1DC59810000D680E /* confetti.png in Resources */,
 				7D6793291DBC8A180011D3D6 /* GunShot2.wav in Resources */,
 				7D0145AA1DBC3EA1002FA6E7 /* HeroSectionView.xib in Resources */,
+				7DE52D481DC5AAF3000D680E /* HeroStoryView.xib in Resources */,
 				7D16556E1DBD155F00A69CDE /* McCreeWeaponView.xib in Resources */,
 				7D1655741DBD1ABF00A69CDE /* smoke.png in Resources */,
+				7DE52D461DC59E46000D680E /* StarStuff.scnp in Resources */,
 				7D6793271DBC87A10011D3D6 /* GunShot.wav in Resources */,
 				7D0145A21DBBEBC7002FA6E7 /* HeroView.xib in Resources */,
+				7DE52D301DC586C1000D680E /* star.png in Resources */,
+				7DE52D421DC5998F000D680E /* bokeh.png in Resources */,
 				7D67932D1DBC96BD0011D3D6 /* ZaryaShot.wav in Resources */,
 				7D1655781DBD3A4900A69CDE /* McCreeSmoke.scnp in Resources */,
 				7D79E4CB1DBB039D004E18F5 /* Main.storyboard in Resources */,
+				7DE52D381DC590C2000D680E /* spark.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +295,7 @@
 			files = (
 				7D16557C1DBD5F2200A69CDE /* HeroAttributes.swift in Sources */,
 				7D0145A01DBBE8DC002FA6E7 /* Overwatch.swift in Sources */,
+				7DE52D4A1DC5AB0D000D680E /* HeroStoryView.swift in Sources */,
 				7D168DA31DBB04420035B5D5 /* OverwatchHero.swift in Sources */,
 				7D0145A41DBBEBF5002FA6E7 /* HeroView.swift in Sources */,
 				7D1655701DBD156E00A69CDE /* McCreeWeaponView.swift in Sources */,
@@ -269,6 +304,7 @@
 				7D0145A81DBC0F48002FA6E7 /* HeroTableViewController.swift in Sources */,
 				7D0145A61DBC0EAC002FA6E7 /* HeroTableViewCell.swift in Sources */,
 				7D0145AC1DBC3EB2002FA6E7 /* HeroSectionView.swift in Sources */,
+				7DE52D321DC58844000D680E /* HeroPortraitView.swift in Sources */,
 				7D16557A1DBD5E6000A69CDE /* Extensions.swift in Sources */,
 				7D168DA51DBB0EBB0035B5D5 /* Hero.swift in Sources */,
 			);
@@ -314,6 +350,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -363,6 +400,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

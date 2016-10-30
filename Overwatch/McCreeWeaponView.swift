@@ -51,7 +51,6 @@ class McCreeWeaponView: UIView {
     }
     
     @IBAction func itsHighNoon(_ sender: UIButton) {
-        print("It's high noon.")
         audioPlayer.play()
     }
     

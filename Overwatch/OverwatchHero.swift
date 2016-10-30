@@ -18,6 +18,7 @@ protocol OverwatchHero {
     var affiliations: [Affiliation] { get }
     var type: String { get }
     var image: UIImage { get }
+    var portrait: UIImage { get }
     var realNameAndAge: String { get }
     var nickName: String { get }
 }
@@ -111,6 +112,13 @@ extension OverwatchHero {
         case .widowmaker: return #imageLiteral(resourceName: "Widowmaker")
         }
         
+    }
+    
+    var portrait: UIImage {
+        switch name {
+        case .genji: return #imageLiteral(resourceName: "GenjiPortrait")
+        default: return UIImage()
+        }
     }
     
     var realNameAndAge: String {

@@ -13,6 +13,7 @@ class HeroDetailViewController: UIViewController {
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
     @IBOutlet weak var topImageView: UIImageView!
     @IBOutlet weak var heroLabel: UILabel!
+    @IBOutlet weak var heroPortraitImageView: HeroPortraitView!
     
     var heroView: HeroView!
     var selectedFrame: CGRect!
@@ -21,10 +22,12 @@ class HeroDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         topImageView.alpha = 0.0
+        heroPortraitImageView.alpha = 0.0
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        heroPortraitImageView.hero = hero
         heroView = HeroView(frame: selectedFrame)
         heroView.hero = hero
         visualEffectView.addSubview(heroView)
@@ -48,15 +51,24 @@ class HeroDetailViewController: UIViewController {
             self.heroView.center.y = (self.selectedFrame.size.height / 2)
             self.heroView.alpha = 0.0
         }) { _ in
-        
         }
         
         UIView.transition(with: topImageView, duration: 1.8, options: .transitionCrossDissolve, animations: {
             self.topImageView.alpha = 1.0
         }) { _ in
-        
-            
         }
+        
+        
+        UIView.transition(with: heroPortraitImageView, duration: 2.4, options: .transitionCrossDissolve, animations:
+            {
+                self.heroPortraitImageView.alpha = 1.0
+                }) { _ in
+        }
+        
+        
+        
+        
+        
         
         
     }

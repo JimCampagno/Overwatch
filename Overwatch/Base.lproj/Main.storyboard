@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xEm-xE-PQT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xEm-xE-PQT">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,10 +21,10 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeroCell" rowHeight="141" id="MNW-lS-fQP" customClass="HeroTableViewCell" customModule="Overwatch" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="120" width="375" height="141"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="141"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MNW-lS-fQP" id="P6X-Cs-RsD">
-                                    <frame key="frameInset" width="375" height="140"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -52,20 +56,44 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <visualEffectView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B5q-Cl-n2c">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <view key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="GLQ-L1-An2">
-                                    <frame key="frameInset"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5f-Ch-CsP">
+                                <rect key="frame" x="16" y="297" width="343" height="370"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <mutableString key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.7091941237449646" blue="0.99938279390335083" alpha="0.46597105704697989" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="16" name="AvenirNext-Bold"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tq4-nv-dzf" customClass="HeroPortraitView" customModule="Overwatch" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="100" width="375" height="197"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Tq4-nv-dzf" secondAttribute="height" multiplier="375:197" id="5Kc-dA-tZ2"/>
+                                </constraints>
+                            </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CellBackground" translatesAutoresizingMaskIntoConstraints="NO" id="K3h-bT-Jch">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="01C-by-uyb"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="8HH-Dc-cVB">
+                                <rect key="frame" x="108" y="17" width="159" height="66"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Reaper">
                                         <attributes>
@@ -82,24 +110,32 @@
                         <constraints>
                             <constraint firstItem="AIT-Kb-8cI" firstAttribute="top" secondItem="B5q-Cl-n2c" secondAttribute="bottom" id="2Af-hH-egd"/>
                             <constraint firstItem="B5q-Cl-n2c" firstAttribute="leading" secondItem="eTU-ZY-3EW" secondAttribute="leading" id="GWr-af-gIB"/>
+                            <constraint firstItem="Tq4-nv-dzf" firstAttribute="leading" secondItem="eTU-ZY-3EW" secondAttribute="leading" id="HpT-vO-iCC"/>
+                            <constraint firstItem="g5f-Ch-CsP" firstAttribute="top" secondItem="Tq4-nv-dzf" secondAttribute="bottom" id="ILy-Ju-0eq"/>
                             <constraint firstItem="K3h-bT-Jch" firstAttribute="top" secondItem="eTU-ZY-3EW" secondAttribute="topMargin" id="INm-qu-rXt"/>
+                            <constraint firstItem="AIT-Kb-8cI" firstAttribute="top" secondItem="g5f-Ch-CsP" secondAttribute="bottom" id="IlH-Em-DxY"/>
                             <constraint firstItem="K3h-bT-Jch" firstAttribute="leading" secondItem="eTU-ZY-3EW" secondAttribute="leading" id="L6d-YW-M6a"/>
                             <constraint firstItem="8HH-Dc-cVB" firstAttribute="centerY" secondItem="K3h-bT-Jch" secondAttribute="centerY" id="O4E-be-bra"/>
                             <constraint firstItem="K3h-bT-Jch" firstAttribute="trailing" secondItem="eTU-ZY-3EW" secondAttribute="trailing" id="Pz7-eH-XY1"/>
+                            <constraint firstItem="g5f-Ch-CsP" firstAttribute="trailing" secondItem="eTU-ZY-3EW" secondAttribute="trailingMargin" id="QDP-pm-TPd"/>
+                            <constraint firstItem="Tq4-nv-dzf" firstAttribute="top" secondItem="K3h-bT-Jch" secondAttribute="bottom" id="XxM-AE-xzY"/>
                             <constraint firstItem="8HH-Dc-cVB" firstAttribute="centerX" secondItem="eTU-ZY-3EW" secondAttribute="centerX" id="bYk-vc-TKD"/>
                             <constraint firstItem="B5q-Cl-n2c" firstAttribute="top" secondItem="eTU-ZY-3EW" secondAttribute="topMargin" id="htU-eI-l4e"/>
+                            <constraint firstItem="Tq4-nv-dzf" firstAttribute="trailing" secondItem="eTU-ZY-3EW" secondAttribute="trailing" id="lYU-Me-SYo"/>
                             <constraint firstItem="B5q-Cl-n2c" firstAttribute="trailing" secondItem="eTU-ZY-3EW" secondAttribute="trailing" id="uJz-SS-BDE"/>
+                            <constraint firstItem="g5f-Ch-CsP" firstAttribute="leading" secondItem="eTU-ZY-3EW" secondAttribute="leadingMargin" id="yF8-dD-kHB"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="heroLabel" destination="8HH-Dc-cVB" id="2GD-Ft-AWM"/>
+                        <outlet property="heroPortraitImageView" destination="Tq4-nv-dzf" id="4mw-qn-Vwm"/>
                         <outlet property="topImageView" destination="K3h-bT-Jch" id="eyx-Sl-7QX"/>
                         <outlet property="visualEffectView" destination="B5q-Cl-n2c" id="y5X-ql-zKv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g6c-Fb-JQX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3048.8000000000002" y="115.59220389805098"/>
+            <point key="canvasLocation" x="3032.8000000000002" y="115.59220389805098"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NLo-T2-ALV">
