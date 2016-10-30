@@ -88,7 +88,7 @@ extension HeroDetailViewController {
         }) { _ in
         }
         
-        UIView.transition(with: heroStoryView, duration: 1.0, options: .transitionCrossDissolve, animations: {
+        UIView.transition(with: heroStoryView, duration: 1.8, options: [.transitionCrossDissolve, .allowUserInteraction], animations: {
             self.heroStoryView.alpha = 1.0
         }) { _ in }
         
@@ -117,7 +117,7 @@ extension HeroDetailViewController: HeroStoryViewDelegate {
             let percentage = y / height
             var calculation = (1 - (1 - percentage) - 0.6)
             if calculation > 0.0 {
-                calculation = calculation * 1.8
+                calculation = calculation * 3.0
             }
             heroImageView.alpha = calculation
         }

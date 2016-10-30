@@ -118,15 +118,15 @@ extension OverwatchHero {
     
     var portrait: UIImage {
         switch name {
-        case .genji: return #imageLiteral(resourceName: "GenjiPortrait")
-        default: return UIImage()
+        case .soldier: return #imageLiteral(resourceName: "SoldierPortrait")
+        default: return UIImage(named: "\(name)" + "Portrait")!
         }
     }
     
     var wideImage: UIImage {
         switch name {
-        case .genji: return #imageLiteral(resourceName: "GenjiWide")
-        default: return UIImage()
+        case .soldier: return #imageLiteral(resourceName: "SoldierWide")
+        default: return UIImage(named: "\(name)" + "Wide")!
         }
     }
     
@@ -159,10 +159,19 @@ extension OverwatchHero {
     }
     
     var story: String {
-        let resource = "\(name)" + "Story"
-        let path = Bundle.main.url(forResource: resource, withExtension: "txt")!
-        let text = try! String(contentsOf: path, encoding: String.Encoding.utf8)
-        return text
+        switch name {
+        case .soldier:
+            let resource = "Soldier" + "Story"
+            let path = Bundle.main.url(forResource: resource, withExtension: "txt")!
+            let text = try! String(contentsOf: path, encoding: String.Encoding.utf8)
+            return text
+        default:
+            let resource = "\(name)" + "Story"
+            let path = Bundle.main.url(forResource: resource, withExtension: "txt")!
+            let text = try! String(contentsOf: path, encoding: String.Encoding.utf8)
+            return text
+        }
+        
     }
     
    

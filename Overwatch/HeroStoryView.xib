@@ -35,13 +35,13 @@
                             </constraints>
                         </view>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCy-Nt-90P">
-                            <rect key="frame" x="8" y="196" width="359" height="49"/>
+                            <rect key="frame" x="8" y="196" width="359" height="41"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <attributedString key="attributedText">
                                 <fragment content="Momma">
                                     <attributes>
                                         <color key="NSColor" red="0.96073371171951294" green="0.95687931776046753" blue="0.96075409650802612" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <font key="NSFont" size="24" name="Avenir-Book"/>
+                                        <font key="NSFont" size="18" name="Avenir-Book"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                     </attributes>
                                 </fragment>

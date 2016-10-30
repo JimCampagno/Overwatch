@@ -43,6 +43,11 @@
 		7DE52D481DC5AAF3000D680E /* HeroStoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DE52D471DC5AAF3000D680E /* HeroStoryView.xib */; };
 		7DE52D4A1DC5AB0D000D680E /* HeroStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE52D491DC5AB0D000D680E /* HeroStoryView.swift */; };
 		7DE52D4D1DC62E7D000D680E /* GenjiStory.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7DE52D4C1DC62E7D000D680E /* GenjiStory.txt */; };
+		7DE52D521DC69458000D680E /* McCreeStory.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7DE52D4E1DC69458000D680E /* McCreeStory.txt */; };
+		7DE52D531DC69458000D680E /* PharahStory.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7DE52D4F1DC69458000D680E /* PharahStory.txt */; };
+		7DE52D541DC69458000D680E /* ReaperStory.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7DE52D501DC69458000D680E /* ReaperStory.txt */; };
+		7DE52D551DC69458000D680E /* SoldierStory.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7DE52D511DC69458000D680E /* SoldierStory.txt */; };
+		7DE52D571DC6945E000D680E /* TracerStory.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7DE52D561DC6945E000D680E /* TracerStory.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +89,11 @@
 		7DE52D471DC5AAF3000D680E /* HeroStoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeroStoryView.xib; sourceTree = "<group>"; };
 		7DE52D491DC5AB0D000D680E /* HeroStoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroStoryView.swift; sourceTree = "<group>"; };
 		7DE52D4C1DC62E7D000D680E /* GenjiStory.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GenjiStory.txt; sourceTree = "<group>"; };
+		7DE52D4E1DC69458000D680E /* McCreeStory.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = McCreeStory.txt; sourceTree = "<group>"; };
+		7DE52D4F1DC69458000D680E /* PharahStory.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PharahStory.txt; sourceTree = "<group>"; };
+		7DE52D501DC69458000D680E /* ReaperStory.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReaperStory.txt; sourceTree = "<group>"; };
+		7DE52D511DC69458000D680E /* SoldierStory.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SoldierStory.txt; sourceTree = "<group>"; };
+		7DE52D561DC6945E000D680E /* TracerStory.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TracerStory.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +220,11 @@
 			isa = PBXGroup;
 			children = (
 				7DE52D4C1DC62E7D000D680E /* GenjiStory.txt */,
+				7DE52D4E1DC69458000D680E /* McCreeStory.txt */,
+				7DE52D4F1DC69458000D680E /* PharahStory.txt */,
+				7DE52D501DC69458000D680E /* ReaperStory.txt */,
+				7DE52D561DC6945E000D680E /* TracerStory.txt */,
+				7DE52D511DC69458000D680E /* SoldierStory.txt */,
 			);
 			name = Stories;
 			sourceTree = "<group>";
@@ -282,17 +297,22 @@
 				7DE52D3C1DC59810000D680E /* confetti.png in Resources */,
 				7D6793291DBC8A180011D3D6 /* GunShot2.wav in Resources */,
 				7D0145AA1DBC3EA1002FA6E7 /* HeroSectionView.xib in Resources */,
+				7DE52D531DC69458000D680E /* PharahStory.txt in Resources */,
 				7DE52D4D1DC62E7D000D680E /* GenjiStory.txt in Resources */,
 				7DE52D481DC5AAF3000D680E /* HeroStoryView.xib in Resources */,
+				7DE52D571DC6945E000D680E /* TracerStory.txt in Resources */,
 				7D16556E1DBD155F00A69CDE /* McCreeWeaponView.xib in Resources */,
 				7D1655741DBD1ABF00A69CDE /* smoke.png in Resources */,
 				7DE52D461DC59E46000D680E /* StarStuff.scnp in Resources */,
 				7D6793271DBC87A10011D3D6 /* GunShot.wav in Resources */,
 				7D0145A21DBBEBC7002FA6E7 /* HeroView.xib in Resources */,
+				7DE52D521DC69458000D680E /* McCreeStory.txt in Resources */,
+				7DE52D551DC69458000D680E /* SoldierStory.txt in Resources */,
 				7DE52D301DC586C1000D680E /* star.png in Resources */,
 				7DE52D421DC5998F000D680E /* bokeh.png in Resources */,
 				7D67932D1DBC96BD0011D3D6 /* ZaryaShot.wav in Resources */,
 				7D1655781DBD3A4900A69CDE /* McCreeSmoke.scnp in Resources */,
+				7DE52D541DC69458000D680E /* ReaperStory.txt in Resources */,
 				7D79E4CB1DBB039D004E18F5 /* Main.storyboard in Resources */,
 				7DE52D381DC590C2000D680E /* spark.png in Resources */,
 			);
