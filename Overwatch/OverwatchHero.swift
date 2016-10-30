@@ -19,8 +19,10 @@ protocol OverwatchHero {
     var type: String { get }
     var image: UIImage { get }
     var portrait: UIImage { get }
+    var wideImage: UIImage { get }
     var realNameAndAge: String { get }
     var nickName: String { get }
+    var story: String { get }
 }
 
 extension OverwatchHero {
@@ -121,6 +123,13 @@ extension OverwatchHero {
         }
     }
     
+    var wideImage: UIImage {
+        switch name {
+        case .genji: return #imageLiteral(resourceName: "GenjiWide")
+        default: return UIImage()
+        }
+    }
+    
     var realNameAndAge: String {
         return realName + ", " + age
         
@@ -147,6 +156,13 @@ extension OverwatchHero {
         case .widowmaker: return [Affiliation.talon]
             
         }
+    }
+    
+    var story: String {
+        let resource = "\(name)" + "Story"
+        let path = Bundle.main.url(forResource: resource, withExtension: "txt")!
+        let text = try! String(contentsOf: path, encoding: String.Encoding.utf8)
+        return text
     }
     
    

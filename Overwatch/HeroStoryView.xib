@@ -6,43 +6,70 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeroStoryView" customModule="Overwatch" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="zpB-SR-UgK"/>
+                <outlet property="heroPortraitView" destination="dFi-iH-Ypk" id="7z4-sk-yZw"/>
+                <outlet property="heroScrollView" destination="XIM-yW-UML" id="y8u-5C-k8Y"/>
+                <outlet property="storyTextView" destination="fCy-Nt-90P" id="KMC-0m-VdL"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aqe-E9-bni">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <attributedString key="attributedText">
-                        <fragment>
-                            <mutableString key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
-                            <attributes>
-                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <font key="NSFont" size="24" name="AvenirNext-DemiBold"/>
-                            </attributes>
-                        </fragment>
-                    </attributedString>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIM-yW-UML">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dFi-iH-Ypk" customClass="HeroPortraitView" customModule="Overwatch" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="197"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="dFi-iH-Ypk" secondAttribute="height" multiplier="375:197" id="Nd2-us-Yan"/>
+                            </constraints>
+                        </view>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCy-Nt-90P">
+                            <rect key="frame" x="8" y="196" width="359" height="49"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <attributedString key="attributedText">
+                                <fragment content="Momma">
+                                    <attributes>
+                                        <color key="NSColor" red="0.96073371171951294" green="0.95687931776046753" blue="0.96075409650802612" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <font key="NSFont" size="24" name="Avenir-Book"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="dFi-iH-Ypk" firstAttribute="leading" secondItem="XIM-yW-UML" secondAttribute="leading" id="Yjb-Do-IHp"/>
+                        <constraint firstItem="fCy-Nt-90P" firstAttribute="bottom" secondItem="XIM-yW-UML" secondAttribute="bottom" id="aJh-Da-BK0"/>
+                        <constraint firstItem="fCy-Nt-90P" firstAttribute="top" secondItem="dFi-iH-Ypk" secondAttribute="bottom" constant="-1" id="bvc-dL-51k"/>
+                        <constraint firstItem="fCy-Nt-90P" firstAttribute="leading" secondItem="XIM-yW-UML" secondAttribute="leadingMargin" id="lJ2-5W-F9M"/>
+                        <constraint firstItem="dFi-iH-Ypk" firstAttribute="top" secondItem="XIM-yW-UML" secondAttribute="top" id="mUC-iD-4Fa"/>
+                        <constraint firstItem="dFi-iH-Ypk" firstAttribute="trailing" secondItem="XIM-yW-UML" secondAttribute="trailing" id="roB-zl-5pO"/>
+                        <constraint firstItem="fCy-Nt-90P" firstAttribute="trailing" secondItem="XIM-yW-UML" secondAttribute="trailingMargin" id="w78-E6-7Mu"/>
+                    </constraints>
+                </scrollView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Aqe-E9-bni" secondAttribute="trailing" id="SeS-vu-fXg"/>
-                <constraint firstItem="Aqe-E9-bni" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="oeM-ND-aRC"/>
-                <constraint firstAttribute="bottom" secondItem="Aqe-E9-bni" secondAttribute="bottom" id="qWj-Qw-WUW"/>
-                <constraint firstItem="Aqe-E9-bni" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="urT-5n-tGw"/>
+                <constraint firstItem="XIM-yW-UML" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="8Zr-A2-LoY"/>
+                <constraint firstItem="XIM-yW-UML" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="CjM-fv-Szk"/>
+                <constraint firstItem="XIM-yW-UML" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="jb1-Cb-Xal"/>
+                <constraint firstItem="XIM-yW-UML" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="nIp-nH-kD3"/>
+                <constraint firstItem="dFi-iH-Ypk" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="qoT-8W-2q0"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="33.5" y="53.5"/>
+            <point key="canvasLocation" x="0.5" y="7"/>
         </view>
     </objects>
 </document>

@@ -42,6 +42,7 @@
 		7DE52D461DC59E46000D680E /* StarStuff.scnp in Resources */ = {isa = PBXBuildFile; fileRef = 7DE52D451DC59E46000D680E /* StarStuff.scnp */; };
 		7DE52D481DC5AAF3000D680E /* HeroStoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DE52D471DC5AAF3000D680E /* HeroStoryView.xib */; };
 		7DE52D4A1DC5AB0D000D680E /* HeroStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE52D491DC5AB0D000D680E /* HeroStoryView.swift */; };
+		7DE52D4D1DC62E7D000D680E /* GenjiStory.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7DE52D4C1DC62E7D000D680E /* GenjiStory.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		7DE52D451DC59E46000D680E /* StarStuff.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = StarStuff.scnp; sourceTree = "<group>"; };
 		7DE52D471DC5AAF3000D680E /* HeroStoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeroStoryView.xib; sourceTree = "<group>"; };
 		7DE52D491DC5AB0D000D680E /* HeroStoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroStoryView.swift; sourceTree = "<group>"; };
+		7DE52D4C1DC62E7D000D680E /* GenjiStory.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GenjiStory.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,11 +198,20 @@
 				7D16557D1DBD5FAB00A69CDE /* Models */,
 				7D16557E1DBD5FC300A69CDE /* Views */,
 				7D1655811DBD603C00A69CDE /* Controllers */,
+				7DE52D4B1DC62E6B000D680E /* Stories */,
 				7D1655801DBD602200A69CDE /* Sounds */,
 				7D16557F1DBD600C00A69CDE /* Nodes */,
 				7D79E4CC1DBB039D004E18F5 /* Assets.xcassets */,
 			);
 			path = Overwatch;
+			sourceTree = "<group>";
+		};
+		7DE52D4B1DC62E6B000D680E /* Stories */ = {
+			isa = PBXGroup;
+			children = (
+				7DE52D4C1DC62E7D000D680E /* GenjiStory.txt */,
+			);
+			name = Stories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,6 +282,7 @@
 				7DE52D3C1DC59810000D680E /* confetti.png in Resources */,
 				7D6793291DBC8A180011D3D6 /* GunShot2.wav in Resources */,
 				7D0145AA1DBC3EA1002FA6E7 /* HeroSectionView.xib in Resources */,
+				7DE52D4D1DC62E7D000D680E /* GenjiStory.txt in Resources */,
 				7DE52D481DC5AAF3000D680E /* HeroStoryView.xib in Resources */,
 				7D16556E1DBD155F00A69CDE /* McCreeWeaponView.xib in Resources */,
 				7D1655741DBD1ABF00A69CDE /* smoke.png in Resources */,

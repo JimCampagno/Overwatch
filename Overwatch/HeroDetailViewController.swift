@@ -13,7 +13,8 @@ class HeroDetailViewController: UIViewController {
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
     @IBOutlet weak var topImageView: UIImageView!
     @IBOutlet weak var heroLabel: UILabel!
-    @IBOutlet weak var heroPortraitImageView: HeroPortraitView!
+    @IBOutlet weak var heroStoryView: HeroStoryView!
+    @IBOutlet weak var heroImageView: UIImageView!
     
     var heroView: HeroView!
     var selectedFrame: CGRect!
@@ -21,24 +22,53 @@ class HeroDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        topImageView.alpha = 0.0
-        heroPortraitImageView.alpha = 0.0
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        heroPortraitImageView.hero = hero
+        basicSetup()
+        performAnimations()
+    }
+    
+    func dismissView() {
+        UIView.animate(withDuration: 0.4, animations: {
+            self.view.subviews.forEach { $0.alpha = 0.0 }
+        }) { _ in
+            self.dismiss(animated: false, completion: nil)
+        }
+        
+    }
+    
+}
+
+// MARK: - Setup
+extension HeroDetailViewController {
+    
+    func basicSetup() {
+        topImageView.alpha = 0.0
+        heroStoryView.delegate = self
+        heroStoryView.hero = hero
+        heroStoryView.alpha = 0.0
         heroView = HeroView(frame: selectedFrame)
         heroView.hero = hero
         visualEffectView.addSubview(heroView)
         heroLabel.text = "\(hero.name)"
         heroLabel.alpha = 0.0
         visualEffectView.alpha = 0.0
-        
+        heroImageView.image = hero.wideImage
+        heroImageView.alpha = 0.0
+    }
+    
+}
+
+// MARK: - Animations
+extension HeroDetailViewController {
+    
+    func performAnimations() {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissView))
         gestureRecognizer.numberOfTapsRequired = 1
         view.addGestureRecognizer(gestureRecognizer)
-    
+        
         UIView.animate(withDuration: 0.3) {
             self.visualEffectView.alpha = 1.0
         }
@@ -58,28 +88,38 @@ class HeroDetailViewController: UIViewController {
         }) { _ in
         }
         
+        UIView.transition(with: heroStoryView, duration: 1.0, options: .transitionCrossDissolve, animations: {
+            self.heroStoryView.alpha = 1.0
+        }) { _ in }
         
-        UIView.transition(with: heroPortraitImageView, duration: 2.4, options: .transitionCrossDissolve, animations:
-            {
-                self.heroPortraitImageView.alpha = 1.0
-                }) { _ in
-        }
-        
-        
-        
-        
-        
-        
-        
+    
     }
     
-    func dismissView() {
-        UIView.animate(withDuration: 0.4, animations: {
-            self.view.subviews.forEach { $0.alpha = 0.0 }
-        }) { _ in
-            self.dismiss(animated: false, completion: nil)
+    
+}
+
+
+// MARK: - HeroStoryViewDelegate
+extension HeroDetailViewController: HeroStoryViewDelegate {
+    
+    func heroStoryViewDidScroll(_ heroStoryView: HeroStoryView, value: CGFloat) {
+        
+        if (0...0.8).contains(value) {
+            heroLabel.alpha = value
+            topImageView.alpha = value + 0.2
+            heroLabel.transform = CGAffineTransform(scaleX: value, y: value)
         }
         
+        let y = heroStoryView.heroScrollView.contentOffset.y
+        
+        if y > 100.0 {
+            let height = heroImageView.frame.size.height
+            let percentage = y / height
+            var calculation = (1 - (1 - percentage) - 0.6)
+            if calculation > 0.0 {
+                calculation = calculation * 1.8
+            }
+            heroImageView.alpha = calculation
+        }
     }
-
 }

@@ -20,6 +20,14 @@ class HeroPortraitView: UIView {
         }
     }
     
+    var offset: CGPoint! {
+        didSet {
+            
+            //TODO:
+            
+        }
+    }
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -48,20 +56,7 @@ class HeroPortraitView: UIView {
         smokeView.backgroundColor = UIColor.clear
         smokeView.translatesAutoresizingMaskIntoConstraints = false
         insertSubview(smokeView, at: 0)
-//        smokeView.constrainEdges(to: self)
-        
         smokeView.constrainEdges(to: self, padding: Padding(top: -100, bottom: -200, leading: 0, trailing: 0))
-        
-        
-//        smokeView.widthAnchor.constraint(equalTo: portraitImageView.widthAnchor, multiplier: 1.5).isActive = true
-//        smokeView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 1.0).isActive = true
-//        smokeView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-////        smokeView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-//        
-//        
-//        smokeView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 100).isActive = true
-        
-        
         let smoke = SCNParticleSystem(named: "StarStuff", inDirectory: nil)!
         smokeView.scene?.rootNode.addParticleSystem(smoke)
     }
