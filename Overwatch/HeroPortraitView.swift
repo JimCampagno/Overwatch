@@ -48,6 +48,9 @@ class HeroPortraitView: UIView {
         backgroundColor = UIColor.clear
         contentView.backgroundColor = UIColor.clear
         
+        // portraitImageView.layer.borderWidth = 0.5
+        // portraitImageView.layer.borderColor = UIColor(red:0.09, green:0.55, blue:0.74, alpha:1.00).cgColor
+        
     }
     
     private func createStarParticles() {
@@ -55,8 +58,8 @@ class HeroPortraitView: UIView {
         smokeView.scene = SCNScene()
         smokeView.backgroundColor = UIColor.clear
         smokeView.translatesAutoresizingMaskIntoConstraints = false
-        insertSubview(smokeView, at: 0)
-        smokeView.constrainEdges(to: self, padding: Padding(top: -100, bottom: -200, leading: 0, trailing: 0))
+        portraitImageView.insertSubview(smokeView, at: 0)
+        smokeView.constrainEdges(to: portraitImageView, padding: Padding(top: -100, bottom: -200, leading: 0, trailing: 0))
         let smoke = SCNParticleSystem(named: "StarStuff", inDirectory: nil)!
         smokeView.scene?.rootNode.addParticleSystem(smoke)
     }

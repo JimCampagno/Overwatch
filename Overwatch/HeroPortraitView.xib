@@ -23,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GenjiPortrait" translatesAutoresizingMaskIntoConstraints="NO" id="1bC-7S-X1A">
-                    <rect key="frame" x="93.5" y="8" width="187.5" height="197"/>
+                    <rect key="frame" x="8" y="8" width="187.5" height="197"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="1bC-7S-X1A" secondAttribute="height" multiplier="626:658" id="Ru4-h3-TdW"/>
                     </constraints>
@@ -33,7 +33,7 @@
             <constraints>
                 <constraint firstItem="1bC-7S-X1A" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="8" id="C3u-lo-Wjh"/>
                 <constraint firstItem="1bC-7S-X1A" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" id="K0P-xs-GVL"/>
-                <constraint firstItem="1bC-7S-X1A" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Yue-21-uWf"/>
+                <constraint firstItem="1bC-7S-X1A" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="sw8-7e-hEP"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
